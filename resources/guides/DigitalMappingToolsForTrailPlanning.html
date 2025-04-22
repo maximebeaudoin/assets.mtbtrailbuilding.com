@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Mapping Tools for Trail Planning</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .case-study {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .case-study h4 {
+        color: var(--forest);
+        margin-top: 0;
+      }
+
+      .challenge {
+        background-color: rgba(224, 122, 95, 0.1);
+        border-left: 4px solid var(--sunset);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .challenge h4 {
+        color: var(--sunset);
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      .solutions h5 {
+        color: var(--rock);
+        margin: 15px 0 10px;
+        font-weight: 600;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      .resources-section {
+        background-color: rgba(210, 180, 140, 0.2);
+        padding: 20px;
+        border-radius: 4px;
+        margin: 30px 0;
+      }
+
+      .process-step {
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .step-number {
+        background-color: var(--forest);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .step-content h4 {
+        margin-top: 3px;
+        margin-bottom: 10px;
+      }
+
+      .appendix {
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin: 5px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th {
+        background-color: var(--forest);
+        color: white;
+        padding: 10px;
+        text-align: left;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      pre,
+      code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      pre {
+        padding: 15px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+      }
+
+      blockquote {
+        border-left: 4px solid var(--sand);
+        padding: 10px 20px;
+        margin: 20px 0;
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      a {
+        color: var(--forest);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: var(--sand);
+        margin: 40px 0;
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Digital Mapping Tools for Trail Planning</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>Introduction</h2>
+          <p>
+            Modern trail planning relies on powerful digital tools to analyze terrain, visualize
+            routes, and communicate designs. This guide will help you leverage technology for better
+            trail planning, resulting in more sustainable and enjoyable trails.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>Types of Mapping Tools</h2>
+
+          <h3>GPS and Mobile Apps</h3>
+          <p>
+            Field-based tools are essential for recording tracks, marking features, and collecting
+            data during site visits. These tools allow you to:
+          </p>
+          <ul>
+            <li>Record potential trail alignments while walking the terrain</li>
+            <li>Mark points of interest (viewpoints, technical features, water crossings)</li>
+            <li>Collect and organize field data for later analysis</li>
+            <li>Share field data with your planning team</li>
+          </ul>
+
+          <h3>GIS Software</h3>
+          <p>
+            Professional mapping software provides detailed terrain analysis, slope calculations,
+            and visualization capabilities. GIS tools enable you to:
+          </p>
+          <ul>
+            <li>Analyze terrain characteristics including slope, aspect, and elevation</li>
+            <li>Identify sustainable trail corridors that follow contour lines</li>
+            <li>Calculate cut and fill requirements for trail construction</li>
+            <li>Create professional maps for presentations and permits</li>
+            <li>Perform watershed analysis to identify drainage patterns</li>
+          </ul>
+
+          <h3>LiDAR Data Sources</h3>
+          <p>
+            High-resolution elevation data reveals terrain features even under tree canopy. LiDAR
+            data allows you to:
+          </p>
+          <ul>
+            <li>See the true ground surface beneath vegetation</li>
+            <li>Identify subtle terrain features not visible in conventional maps</li>
+            <li>Plan more precise trail alignments based on micro-topography</li>
+            <li>Avoid unexpected terrain challenges during construction</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Recommended Mapping Tools</h2>
+
+          <div class="case-study">
+            <h3>Trailforks</h3>
+            <p>
+              Mobile app and website for trail mapping, planning, and sharing with the community.
+            </p>
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Community-driven trail database</li>
+              <li>Mobile app with offline capabilities</li>
+              <li>Trail status and condition reporting</li>
+              <li>Integration with Strava and other fitness apps</li>
+            </ul>
+          </div>
+
+          <div class="case-study">
+            <h3>QGIS</h3>
+            <p>
+              Free, open-source GIS software for professional-grade terrain analysis and mapping.
+            </p>
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Comprehensive terrain analysis tools</li>
+              <li>Support for multiple data formats</li>
+              <li>Extensive plugin ecosystem</li>
+              <li>Professional-quality map production</li>
+            </ul>
+          </div>
+
+          <div class="case-study">
+            <h3>Gaia GPS</h3>
+            <p>
+              Powerful mobile mapping app with offline capabilities for field work and route
+              planning.
+            </p>
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Offline maps for field use</li>
+              <li>Multiple map layer options (topographic, satellite, etc.)</li>
+              <li>Track recording and waypoint marking</li>
+              <li>Route planning and sharing</li>
+            </ul>
+          </div>
+
+          <div class="case-study">
+            <h3>Caltopo</h3>
+            <p>
+              Web-based mapping platform with excellent terrain visualization and collaborative
+              features.
+            </p>
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Slope angle shading</li>
+              <li>Multiple base map options</li>
+              <li>Collaborative mapping features</li>
+              <li>PDF export for field use</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Mapping Workflow for Trail Planning</h2>
+
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Desktop Research</h4>
+              <ul>
+                <li>Use GIS software to identify potential trail corridors</li>
+                <li>Analyze slope, aspect, and other terrain characteristics</li>
+                <li>Identify property boundaries and sensitive areas to avoid</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Field Reconnaissance</h4>
+              <ul>
+                <li>Use mobile apps to record GPS tracks while walking potential routes</li>
+                <li>Mark waypoints for features, obstacles, and points of interest</li>
+                <li>Take geotagged photos to document site conditions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Refinement</h4>
+              <ul>
+                <li>Import field data into GIS software</li>
+                <li>Refine trail alignments based on field observations</li>
+                <li>Calculate trail statistics (length, elevation gain/loss, average grade)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Visualization and Presentation</h4>
+              <ul>
+                <li>Create maps for stakeholder presentations</li>
+                <li>Generate profile views showing elevation changes</li>
+                <li>Prepare permit applications with detailed maps</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Construction Documentation</h4>
+              <ul>
+                <li>Create detailed maps for trail builders</li>
+                <li>Mark feature locations and construction details</li>
+                <li>Provide digital files for use during construction</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Best Practices</h2>
+          <ul>
+            <li>
+              <strong>Use Multiple Tools</strong>: Each mapping tool has strengths and weaknesses.
+              Use a combination for best results.
+            </li>
+            <li>
+              <strong>Verify in the Field</strong>: Digital data is never perfect. Always verify
+              critical alignments in person.
+            </li>
+            <li>
+              <strong>Keep Data Organized</strong>: Establish a consistent file naming and
+              organization system.
+            </li>
+            <li>
+              <strong>Back Up Your Data</strong>: Store mapping data in multiple locations to
+              prevent loss.
+            </li>
+            <li>
+              <strong>Share Knowledge</strong>: Train your team on using mapping tools to build
+              organizational capacity.
+            </li>
+          </ul>
+        </section>
+
+        <section class="section resources-section">
+          <h2>Resources for Learning</h2>
+          <ul>
+            <li>
+              <a href="https://www.qgistutorials.com/" target="_blank">QGIS Tutorials and Tips</a>
+            </li>
+            <li><a href="https://help.gaiagps.com/" target="_blank">Gaia GPS Help Center</a></li>
+            <li>
+              <a href="https://training.caltopo.com/" target="_blank">Caltopo Learning Center</a>
+            </li>
+            <li>
+              <a href="https://www.imba.com/resource/trail-building" target="_blank"
+                >IMBA Trail Building Resources</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Conclusion</h2>
+          <p>
+            Digital mapping tools have revolutionized trail planning, making it possible to design
+            more sustainable and enjoyable trails with less field time. By mastering these tools,
+            you'll be able to communicate your vision more effectively, avoid costly mistakes, and
+            create better trail experiences for all users.
+          </p>
+        </section>
+
+        <p class="footer-note">
+          This guide is provided by TrailCraft for informational purposes only. Please consult with
+          qualified professionals when implementing these techniques.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

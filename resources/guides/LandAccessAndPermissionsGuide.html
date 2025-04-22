@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Land Access & Permissions Guide</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --light-forest: #4d7c5f;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --property: #a87c4f;
+        --accent: #e07a5f;
+        --light-bg: #f5f5f5;
+        --white: #ffffff;
+        --text: #333333;
+        --light-text: #666666;
+        --land-federal: #436f8a;
+        --land-state: #5b8c5a;
+        --land-local: #7d9d74;
+        --land-private: #a87c4f;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--light-bg);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+        background-image: linear-gradient(135deg, var(--forest) 0%, var(--land-federal) 100%);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--property);
+        font-size: 1.2rem;
+        margin: 25px 0 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .land-type {
+        margin: 25px 0;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .land-type-header {
+        color: white;
+        padding: 10px 15px;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .land-type-content {
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid #ddd;
+        border-top: none;
+      }
+
+      .federal {
+        border-left: 5px solid var(--land-federal);
+      }
+
+      .federal .land-type-header {
+        background-color: var(--land-federal);
+      }
+
+      .state {
+        border-left: 5px solid var(--land-state);
+      }
+
+      .state .land-type-header {
+        background-color: var(--land-state);
+      }
+
+      .local {
+        border-left: 5px solid var(--land-local);
+      }
+
+      .local .land-type-header {
+        background-color: var(--land-local);
+      }
+
+      .private {
+        border-left: 5px solid var(--land-private);
+      }
+
+      .private .land-type-header {
+        background-color: var(--land-private);
+      }
+
+      .process-step {
+        padding: 20px;
+        margin: 15px 0;
+        background-color: rgba(107, 142, 35, 0.1);
+        border-radius: 4px;
+        position: relative;
+      }
+
+      .process-step-number {
+        position: absolute;
+        top: -12px;
+        left: 15px;
+        background-color: var(--olive);
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .agreement-type {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 15px 20px;
+        margin: 15px 0;
+        position: relative;
+      }
+
+      .agreement-type h4 {
+        margin-top: 0;
+        color: var(--forest);
+      }
+
+      .agreement-type-tag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .agreement-secure-low {
+        background-color: #fadbd8;
+        color: #922b21;
+      }
+
+      .agreement-secure-medium {
+        background-color: #fcf3cf;
+        color: #7d6608;
+      }
+
+      .agreement-secure-high {
+        background-color: #d5f5e3;
+        color: #1e8449;
+      }
+
+      .legal-consideration {
+        background-color: rgba(67, 111, 138, 0.1);
+        border-left: 4px solid var(--land-federal);
+        padding: 15px 20px;
+        margin: 15px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .contact-phase {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0 30px;
+        flex-wrap: wrap;
+      }
+
+      .contact-step {
+        flex: 1;
+        min-width: 250px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .contact-step h4 {
+        border-bottom: 2px solid var(--olive);
+        padding-bottom: 8px;
+        margin-bottom: 15px;
+        color: var(--forest);
+      }
+
+      .contact-step::after {
+        content: '→';
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: var(--olive);
+        font-weight: bold;
+      }
+
+      .contact-step:last-child::after {
+        display: none;
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .resource-item {
+        background-color: rgba(46, 87, 58, 0.1);
+        padding: 15px;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .agreement-component {
+        background-color: rgba(168, 124, 79, 0.1);
+        border-left: 4px solid var(--land-private);
+        padding: 15px 20px;
+        margin: 15px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .component-header {
+        font-weight: bold;
+        color: var(--property);
+        margin-bottom: 10px;
+      }
+
+      .relationship-card {
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        padding: 20px;
+        margin: 15px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .relationship-card h4 {
+        color: var(--forest);
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--light-forest);
+        padding-bottom: 8px;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--light-text);
+        font-style: italic;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      @media (max-width: 768px) {
+        .contact-phase {
+          flex-direction: column;
+        }
+
+        .contact-step::after {
+          content: '↓';
+          right: 50%;
+          top: auto;
+          bottom: -20px;
+          transform: translateX(50%);
+        }
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>LAND ACCESS & PERMISSIONS GUIDE</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>INTRODUCTION</h2>
+          <p>
+            Securing land access and proper permissions is a critical first step in any trail
+            building project. This guide provides mountain bike organizations, trail advocates, and
+            community groups with a comprehensive framework for identifying land ownership,
+            approaching landowners, negotiating access agreements, and maintaining positive
+            relationships throughout the trail development process.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>UNDERSTANDING LAND OWNERSHIP TYPES</h2>
+
+          <h3>Public Land</h3>
+
+          <div class="land-type federal">
+            <div class="land-type-header">Federal Land</div>
+            <div class="land-type-content">
+              <h4>National Forests (USFS)</h4>
+              <ul>
+                <li>Managed under multiple-use mandate</li>
+                <li>Requires formal proposal process</li>
+                <li>Subject to NEPA environmental review</li>
+                <li>Often allows volunteer agreements for maintenance</li>
+              </ul>
+
+              <h4>Bureau of Land Management (BLM)</h4>
+              <ul>
+                <li>Similar to USFS but often with more flexible use policies</li>
+                <li>Recreation Area Management Plans guide development</li>
+                <li>Resource Management Plans define allowed uses</li>
+              </ul>
+
+              <h4>National Park Service (NPS)</h4>
+              <ul>
+                <li>Most restrictive federal land management</li>
+                <li>Mountain biking access varies by park unit</li>
+                <li>Special use permits required for events/activities</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="land-type state">
+            <div class="land-type-header">State Land</div>
+            <div class="land-type-content">
+              <h4>State Parks</h4>
+              <ul>
+                <li>Policies vary significantly by state</li>
+                <li>Often have established trail development processes</li>
+                <li>May require partnership agreements</li>
+              </ul>
+
+              <h4>State Forests</h4>
+              <ul>
+                <li>Generally more open to recreation development</li>
+                <li>Often require formal proposals</li>
+                <li>May have timber management priorities</li>
+              </ul>
+
+              <h4>Wildlife Management Areas</h4>
+              <ul>
+                <li>Primary focus on habitat conservation</li>
+                <li>May have seasonal restrictions</li>
+                <li>Requires coordination with wildlife biologists</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="land-type local">
+            <div class="land-type-header">Local Government Land</div>
+            <div class="land-type-content">
+              <h4>County Parks</h4>
+              <ul>
+                <li>Often most receptive to local trail initiatives</li>
+                <li>May have recreation master plans guiding development</li>
+                <li>Usually require formal proposal to parks department</li>
+              </ul>
+
+              <h4>Municipal Land</h4>
+              <ul>
+                <li>City parks departments typically manage</li>
+                <li>Urban trail connections often prioritized</li>
+                <li>May have specific liability concerns</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Private Land</h3>
+
+          <div class="land-type private">
+            <div class="land-type-header">Individual Landowners</div>
+            <div class="land-type-content">
+              <h4>Residential Property Owners</h4>
+              <ul>
+                <li>Personal relationships critical</li>
+                <li>Concerns often focus on privacy and liability</li>
+                <li>May be motivated by community benefit</li>
+              </ul>
+
+              <h4>Agricultural Landowners</h4>
+              <ul>
+                <li>Concerns about crop/livestock impacts</li>
+                <li>Seasonal access considerations</li>
+                <li>May have tax incentive opportunities</li>
+              </ul>
+
+              <h4>Timber/Resource Landowners</h4>
+              <ul>
+                <li>Often open to recreation if compatible with operations</li>
+                <li>May have rotating harvest schedules</li>
+                <li>Typically require formal agreements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="land-type private">
+            <div class="land-type-header">Institutional Landowners</div>
+            <div class="land-type-content">
+              <h4>Land Trusts/Conservation Organizations</h4>
+              <ul>
+                <li>Mission-driven organizations</li>
+                <li>Conservation easements may restrict uses</li>
+                <li>Often supportive if trails align with conservation goals</li>
+              </ul>
+
+              <h4>Corporate Landowners</h4>
+              <ul>
+                <li>May have formal proposal requirements</li>
+                <li>Often concerned with liability and public relations</li>
+                <li>May seek community benefit recognition</li>
+              </ul>
+
+              <h4>Utility Corridors</h4>
+              <ul>
+                <li>Power lines, pipelines, water districts</li>
+                <li>Often have specific use restrictions</li>
+                <li>May require engineering review</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>APPROACHING LANDOWNERS</h2>
+
+          <h3>Research Phase</h3>
+
+          <div class="process-step">
+            <span class="process-step-number">1</span>
+            <h4>Identify Ownership</h4>
+            <ul>
+              <li>County tax assessor records</li>
+              <li>GIS parcel maps</li>
+              <li>Land ownership databases</li>
+              <li>Title searches for complex situations</li>
+            </ul>
+          </div>
+
+          <div class="process-step">
+            <span class="process-step-number">2</span>
+            <h4>Understand Regulations</h4>
+            <ul>
+              <li>Zoning restrictions</li>
+              <li>Easements and right-of-ways</li>
+              <li>Environmental designations</li>
+              <li>Historical/cultural site restrictions</li>
+            </ul>
+          </div>
+
+          <div class="process-step">
+            <span class="process-step-number">3</span>
+            <h4>Identify Decision Makers</h4>
+            <ul>
+              <li>Agency staff contacts for public land</li>
+              <li>Property managers for corporate land</li>
+              <li>Direct owners for private property</li>
+              <li>Board/committee contacts for institutions</li>
+            </ul>
+          </div>
+
+          <h3>Initial Contact</h3>
+
+          <div class="contact-phase">
+            <div class="contact-step">
+              <h4>Preparation</h4>
+              <ul>
+                <li>Research landowner background and interests</li>
+                <li>Prepare concise project overview</li>
+                <li>Identify potential benefits to landowner</li>
+                <li>Anticipate concerns and prepare responses</li>
+              </ul>
+            </div>
+
+            <div class="contact-step">
+              <h4>Communication Methods</h4>
+              <ul>
+                <li>Formal letter of introduction</li>
+                <li>Email with supporting materials</li>
+                <li>Phone call followed by in-person meeting</li>
+                <li>Introduction through mutual connection</li>
+              </ul>
+            </div>
+
+            <div class="contact-step">
+              <h4>Key Talking Points</h4>
+              <ul>
+                <li>Community benefits</li>
+                <li>Environmental stewardship</li>
+                <li>Property value considerations</li>
+                <li>Liability protection measures</li>
+                <li>Maintenance commitments</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Presentation Materials</h3>
+
+          <div class="process-step">
+            <span class="process-step-number">1</span>
+            <h4>Project Overview</h4>
+            <ul>
+              <li>Clear, concise description</li>
+              <li>Maps and visual aids</li>
+              <li>Timeline and phasing</li>
+              <li>Similar successful examples</li>
+            </ul>
+          </div>
+
+          <div class="process-step">
+            <span class="process-step-number">2</span>
+            <h4>Organization Information</h4>
+            <ul>
+              <li>Mission and history</li>
+              <li>Previous projects</li>
+              <li>Partner organizations</li>
+              <li>Insurance coverage</li>
+            </ul>
+          </div>
+
+          <div class="process-step">
+            <span class="process-step-number">3</span>
+            <h4>Impact Mitigation</h4>
+            <ul>
+              <li>Environmental protection measures</li>
+              <li>User management strategies</li>
+              <li>Maintenance plans</li>
+              <li>Conflict resolution process</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>NEGOTIATING ACCESS AGREEMENTS</h2>
+
+          <h3>Types of Agreements</h3>
+
+          <div class="agreement-type">
+            <span class="agreement-type-tag agreement-secure-low">Low Security</span>
+            <h4>Handshake Agreements</h4>
+            <ul>
+              <li>Informal and based on trust</li>
+              <li>Not legally binding</li>
+              <li>Vulnerable to ownership changes</li>
+              <li>Not recommended for significant investments</li>
+            </ul>
+          </div>
+
+          <div class="agreement-type">
+            <span class="agreement-type-tag agreement-secure-low">Low Security</span>
+            <h4>License Agreements</h4>
+            <ul>
+              <li>Temporary permission to use property</li>
+              <li>Typically revocable with notice</li>
+              <li>Limited legal protection</li>
+              <li>Good for trial periods</li>
+            </ul>
+          </div>
+
+          <div class="agreement-type">
+            <span class="agreement-type-tag agreement-secure-high">High Security</span>
+            <h4>Easements</h4>
+            <ul>
+              <li>Permanent right to use portion of property</li>
+              <li>Recorded with property deed</li>
+              <li>Survives property sale</li>
+              <li>May have tax benefits for landowner</li>
+            </ul>
+          </div>
+
+          <div class="agreement-type">
+            <span class="agreement-type-tag agreement-secure-medium">Medium Security</span>
+            <h4>Leases</h4>
+            <ul>
+              <li>Defined term (typically 5-20 years)</li>
+              <li>May include payment or in-kind services</li>
+              <li>Specific conditions and renewal terms</li>
+              <li>Good balance of security and flexibility</li>
+            </ul>
+          </div>
+
+          <div class="agreement-type">
+            <span class="agreement-type-tag agreement-secure-high">High Security</span>
+            <h4>Land Purchase</h4>
+            <ul>
+              <li>Full ownership and control</li>
+              <li>Highest initial cost</li>
+              <li>Long-term maintenance responsibility</li>
+              <li>Maximum security for trail investment</li>
+            </ul>
+          </div>
+
+          <h3>Key Agreement Components</h3>
+
+          <div class="agreement-component">
+            <div class="component-header">Access Terms</div>
+            <ul>
+              <li>Specific areas included/excluded</li>
+              <li>Allowed uses and restrictions</li>
+              <li>Hours/seasons of operation</li>
+              <li>Special event provisions</li>
+            </ul>
+          </div>
+
+          <div class="agreement-component">
+            <div class="component-header">Duration and Renewal</div>
+            <ul>
+              <li>Agreement term length</li>
+              <li>Renewal process and conditions</li>
+              <li>Termination clauses and notice periods</li>
+              <li>Dispute resolution process</li>
+            </ul>
+          </div>
+
+          <div class="agreement-component">
+            <div class="component-header">Liability and Insurance</div>
+            <ul>
+              <li>Indemnification language</li>
+              <li>Insurance requirements</li>
+              <li>Risk management protocols</li>
+              <li>Signage requirements</li>
+            </ul>
+          </div>
+
+          <div class="agreement-component">
+            <div class="component-header">Maintenance Responsibilities</div>
+            <ul>
+              <li>Regular maintenance duties</li>
+              <li>Emergency repair protocols</li>
+              <li>Improvement approval process</li>
+              <li>Inspection and reporting requirements</li>
+            </ul>
+          </div>
+
+          <div class="agreement-component">
+            <div class="component-header">Financial Considerations</div>
+            <ul>
+              <li>Fee structure (if applicable)</li>
+              <li>In-kind services</li>
+              <li>Tax implications</li>
+              <li>Cost-sharing arrangements</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>LEGAL CONSIDERATIONS</h2>
+
+          <h3>Liability Protection</h3>
+
+          <div class="legal-consideration">
+            <h4>Recreational Use Statutes</h4>
+            <ul>
+              <li>State-specific protections for landowners</li>
+              <li>Typically requires no fee for access</li>
+              <li>Protects against ordinary negligence</li>
+              <li>Does not protect against gross negligence</li>
+            </ul>
+          </div>
+
+          <div class="legal-consideration">
+            <h4>Insurance Coverage</h4>
+            <ul>
+              <li>General liability policies</li>
+              <li>Umbrella policies for larger coverage</li>
+              <li>Named insured provisions</li>
+              <li>Event-specific coverage</li>
+            </ul>
+          </div>
+
+          <div class="legal-consideration">
+            <h4>Risk Management</h4>
+            <ul>
+              <li>Trail difficulty ratings</li>
+              <li>Warning signage</li>
+              <li>Technical feature alternatives</li>
+              <li>Regular safety inspections</li>
+            </ul>
+          </div>
+
+          <h3>Environmental Compliance</h3>
+
+          <div class="legal-consideration">
+            <h4>Permitting Requirements</h4>
+            <ul>
+              <li>Wetland/waterway permits</li>
+              <li>Erosion control permits</li>
+              <li>Endangered species considerations</li>
+              <li>Historical/archaeological reviews</li>
+            </ul>
+          </div>
+
+          <div class="legal-consideration">
+            <h4>Environmental Assessment</h4>
+            <ul>
+              <li>NEPA requirements (federal land)</li>
+              <li>State environmental policy acts</li>
+              <li>Environmental impact studies</li>
+              <li>Mitigation planning</li>
+            </ul>
+          </div>
+
+          <div class="legal-consideration">
+            <h4>Ongoing Compliance</h4>
+            <ul>
+              <li>Monitoring requirements</li>
+              <li>Reporting obligations</li>
+              <li>Adaptive management</li>
+              <li>Remediation protocols</li>
+            </ul>
+          </div>
+
+          <h3>Tax Implications</h3>
+
+          <div class="legal-consideration">
+            <h4>For Landowners</h4>
+            <ul>
+              <li>Property tax considerations</li>
+              <li>Potential for conservation easements</li>
+              <li>Charitable donation opportunities</li>
+              <li>Income tax implications</li>
+            </ul>
+          </div>
+
+          <div class="legal-consideration">
+            <h4>For Trail Organizations</h4>
+            <ul>
+              <li>Non-profit status requirements</li>
+              <li>Reporting obligations</li>
+              <li>Donor acknowledgment</li>
+              <li>Grant compliance</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>BUILDING RELATIONSHIPS</h2>
+
+          <h3>Landowner Communication</h3>
+
+          <div class="relationship-card">
+            <h4>Regular Updates</h4>
+            <ul>
+              <li>Construction progress</li>
+              <li>Usage statistics</li>
+              <li>Maintenance activities</li>
+              <li>Upcoming events</li>
+            </ul>
+          </div>
+
+          <div class="relationship-card">
+            <h4>Issue Resolution</h4>
+            <ul>
+              <li>Prompt response to concerns</li>
+              <li>Transparent communication</li>
+              <li>Collaborative problem-solving</li>
+              <li>Documentation of resolutions</li>
+            </ul>
+          </div>
+
+          <div class="relationship-card">
+            <h4>Recognition Programs</h4>
+            <ul>
+              <li>Public acknowledgment</li>
+              <li>Signage recognition</li>
+              <li>Media coverage</li>
+              <li>Special events/ceremonies</li>
+            </ul>
+          </div>
+
+          <h3>Community Engagement</h3>
+
+          <div class="relationship-card">
+            <h4>Volunteer Opportunities</h4>
+            <ul>
+              <li>Trail maintenance days</li>
+              <li>Monitoring programs</li>
+              <li>Ambassador programs</li>
+              <li>Special events</li>
+            </ul>
+          </div>
+
+          <div class="relationship-card">
+            <h4>Educational Programs</h4>
+            <ul>
+              <li>Trail etiquette</li>
+              <li>Environmental stewardship</li>
+              <li>Historical/cultural significance</li>
+              <li>Sustainable recreation practices</li>
+            </ul>
+          </div>
+
+          <div class="relationship-card">
+            <h4>Stakeholder Collaboration</h4>
+            <ul>
+              <li>Adjacent landowner engagement</li>
+              <li>Local business partnerships</li>
+              <li>Agency coordination</li>
+              <li>User group cooperation</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>DOCUMENTATION AND RECORD KEEPING</h2>
+
+          <h3>Essential Records</h3>
+
+          <div class="process-step">
+            <span class="process-step-number">1</span>
+            <h4>Legal Documents</h4>
+            <ul>
+              <li>Signed agreements</li>
+              <li>Insurance certificates</li>
+              <li>Permits and approvals</li>
+              <li>Corporate/organizational records</li>
+            </ul>
+          </div>
+
+          <div class="process-step">
+            <span class="process-step-number">2</span>
+            <h4>Project Documentation</h4>
+            <ul>
+              <li>Trail plans and maps</li>
+              <li>Construction specifications</li>
+              <li>Environmental assessments</li>
+              <li>Budget and financial records</li>
+            </ul>
+          </div>
+
+          <div class="process-step">
+            <span class="process-step-number">3</span>
+            <h4>Operational Records</h4>
+            <ul>
+              <li>Maintenance logs</li>
+              <li>Inspection reports</li>
+              <li>Incident documentation</li>
+              <li>User counts/statistics</li>
+            </ul>
+          </div>
+
+          <h3>Information Management</h3>
+
+          <div class="legal-consideration">
+            <h4>Digital Systems</h4>
+            <ul>
+              <li>Cloud storage for documents</li>
+              <li>GIS mapping systems</li>
+              <li>Project management tools</li>
+              <li>Communication archives</li>
+            </ul>
+          </div>
+
+          <div class="legal-consideration">
+            <h4>Succession Planning</h4>
+            <ul>
+              <li>Knowledge transfer protocols</li>
+              <li>Leadership transition documents</li>
+              <li>Institutional memory preservation</li>
+              <li>Contact relationship management</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>RESOURCES AND TOOLS</h2>
+
+          <h3>Agreement Templates</h3>
+          <div class="resource-grid">
+            <div class="resource-item">Trail Easement Template</div>
+            <div class="resource-item">License Agreement Template</div>
+            <div class="resource-item">Volunteer Waiver Form</div>
+            <div class="resource-item">Landowner Recognition Program</div>
+          </div>
+
+          <h3>Land Access Tools</h3>
+          <div class="resource-grid">
+            <div class="resource-item">Landowner Approach Checklist</div>
+            <div class="resource-item">Presentation Template</div>
+            <div class="resource-item">Negotiation Preparation Worksheet</div>
+            <div class="resource-item">Agreement Comparison Matrix</div>
+          </div>
+
+          <h3>Legal Resources</h3>
+          <div class="resource-grid">
+            <div class="resource-item">State-by-State Recreational Use Statute Guide</div>
+            <div class="resource-item">Liability Insurance Guide</div>
+            <div class="resource-item">Environmental Compliance Checklist</div>
+            <div class="resource-item">Tax Benefit Analysis Worksheet</div>
+          </div>
+
+          <h3>Organization Resources</h3>
+          <div class="resource-grid">
+            <div class="resource-item">International Mountain Bicycling Association (IMBA)</div>
+            <div class="resource-item">American Trails</div>
+            <div class="resource-item">Land Trust Alliance</div>
+            <div class="resource-item">Rails-to-Trails Conservancy</div>
+            <div class="resource-item">Local mountain bike organizations</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>CONCLUSION</h2>
+          <p>
+            Securing land access and permissions requires patience, professionalism, and
+            persistence. By understanding landowner perspectives, creating mutually beneficial
+            agreements, and maintaining positive relationships, trail organizations can build
+            sustainable access that benefits communities for generations to come. Remember that each
+            land access situation is unique and may require customized approaches based on specific
+            landowner needs and local conditions.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

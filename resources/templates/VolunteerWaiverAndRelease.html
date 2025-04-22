@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteer Waiver and Release of Liability</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .event-info {
+        background-color: rgba(107, 142, 35, 0.1);
+        border: 1px solid rgba(107, 142, 35, 0.3);
+        border-radius: 6px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .event-info p {
+        margin-bottom: 10px;
+      }
+
+      .event-info strong {
+        color: var(--forest);
+        width: 150px;
+        display: inline-block;
+      }
+
+      .form-section {
+        background-color: var(--white);
+        border: 1px solid var(--sand);
+        border-radius: 6px;
+        padding: 25px;
+        margin: 30px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        color: var(--trail);
+        margin-bottom: 5px;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-top: 5px;
+      }
+
+      .waiver-section {
+        margin: 30px 0;
+        padding: 0 20px;
+      }
+
+      .signature-line {
+        border-top: 1px solid var(--rock);
+        margin: 30px 0 5px;
+        width: 100%;
+      }
+
+      .signature-field {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+
+      .signature-field .signature {
+        width: 60%;
+      }
+
+      .signature-field .date {
+        width: 35%;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+        text-align: center;
+      }
+
+      .risks-list {
+        background-color: rgba(224, 122, 95, 0.1);
+        border-left: 4px solid var(--sunset);
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .notice {
+        font-weight: 600;
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>VOLUNTEER WAIVER AND RELEASE OF LIABILITY</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>[TRAIL ORGANIZATION NAME]</h2>
+          <div class="event-info">
+            <p><strong>Event/Activity:</strong> [Name of Trail Building/Maintenance Event]</p>
+            <p><strong>Date(s):</strong> [Date(s) of Activity]</p>
+            <p><strong>Location:</strong> [Trail/Property Name and Location]</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>VOLUNTEER INFORMATION</h2>
+          <div class="form-section">
+            <div class="form-group">
+              <label for="fullName">Full Name:</label>
+              <input type="text" id="fullName" class="input-field" name="fullName" />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <input type="text" id="address" class="input-field" name="address" />
+            </div>
+
+            <div class="form-group">
+              <label for="cityStateZip">City, State, ZIP:</label>
+              <input type="text" id="cityStateZip" class="input-field" name="cityStateZip" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" class="input-field" name="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" class="input-field" name="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="emergencyName">Emergency Contact Name:</label>
+              <input type="text" id="emergencyName" class="input-field" name="emergencyName" />
+            </div>
+
+            <div class="form-group">
+              <label for="emergencyPhone">Emergency Contact Phone:</label>
+              <input type="tel" id="emergencyPhone" class="input-field" name="emergencyPhone" />
+            </div>
+
+            <div class="form-group">
+              <label for="medicalConditions"
+                >Any medical conditions or allergies we should be aware of:</label
+              >
+              <input
+                type="text"
+                id="medicalConditions"
+                class="input-field"
+                name="medicalConditions"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="waiver-section">
+          <h2>ACKNOWLEDGMENT OF RISK</h2>
+          <p>
+            I, the undersigned volunteer, understand that trail building and maintenance activities
+            involve inherent risks, including but not limited to:
+          </p>
+
+          <div class="risks-list">
+            <ul>
+              <li>Physical injury from use of tools and equipment</li>
+              <li>
+                Exposure to outdoor elements including adverse weather, insects, plants, and
+                wildlife
+              </li>
+              <li>Uneven terrain, falling objects, and other natural hazards</li>
+              <li>Physical exertion and potential strains or injuries</li>
+              <li>Travel to and from remote trail locations</li>
+            </ul>
+          </div>
+
+          <p>
+            I voluntarily choose to participate in these activities with full knowledge of the risks
+            involved. I acknowledge that [ORGANIZATION NAME] has provided safety guidelines and
+            instruction, and I agree to follow all safety protocols and instructions from crew
+            leaders.
+          </p>
+        </section>
+
+        <section class="waiver-section">
+          <h2>WAIVER AND RELEASE</h2>
+          <p>
+            In consideration for the opportunity to participate in trail building and maintenance
+            activities, I hereby release, waive, discharge, and covenant not to sue [ORGANIZATION
+            NAME], its officers, directors, employees, volunteers, partners, and affiliated
+            organizations (collectively, "Releasees") from any and all liability, claims, demands,
+            actions, and causes of action whatsoever arising out of or related to any loss, damage,
+            or injury, including death, that may be sustained by me, or to any property belonging to
+            me, while participating in such activities.
+          </p>
+
+          <p>
+            This release and waiver extends to all claims of every kind or nature whatsoever,
+            foreseen or unforeseen, known or unknown, related to my participation in trail building
+            and maintenance activities.
+          </p>
+        </section>
+
+        <section class="waiver-section">
+          <h2>INDEMNIFICATION</h2>
+          <p>
+            I agree to indemnify and hold harmless the Releasees from any loss, liability, damage,
+            or costs they may incur due to my participation in trail building and maintenance
+            activities.
+          </p>
+        </section>
+
+        <section class="waiver-section">
+          <h2>MEDICAL AUTHORIZATION</h2>
+          <p>
+            In the event of injury or illness during my participation, I authorize [ORGANIZATION
+            NAME] to secure medical treatment on my behalf if I am unable to do so myself. I
+            understand I am financially responsible for any medical treatment I may require as a
+            result of my participation.
+          </p>
+        </section>
+
+        <section class="waiver-section">
+          <h2>PHOTO RELEASE</h2>
+          <p>
+            I grant [ORGANIZATION NAME] permission to use my likeness in photographs, videos, or
+            other media in any and all of its publications, including website and social media,
+            without payment or other consideration.
+          </p>
+        </section>
+
+        <section class="waiver-section">
+          <h2>UNDERSTANDING AND VOLUNTARY SIGNATURE</h2>
+          <p>By signing below, I acknowledge that:</p>
+          <ul>
+            <li>I have read this waiver and release in its entirety</li>
+            <li>I understand its terms</li>
+            <li>I understand I am giving up substantial rights by signing it</li>
+            <li>I am signing it freely and voluntarily</li>
+            <li>No oral representations, statements, or inducements have been made</li>
+            <li>
+              I am at least eighteen (18) years of age and fully competent, or I am the
+              parent/guardian of a minor participant
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>SIGNATURE</h2>
+          <div class="form-section">
+            <div class="signature-field">
+              <div class="signature">
+                <label for="volunteerSignature">Volunteer Signature:</label>
+                <div class="signature-line"></div>
+              </div>
+              <div class="date">
+                <label for="date">Date:</label>
+                <div class="signature-line"></div>
+              </div>
+            </div>
+
+            <div class="signature-field">
+              <div class="signature">
+                <label for="guardianSignature">Parent/Guardian Signature:</label>
+                <div class="signature-line"></div>
+                <em>(Required if volunteer is under 18 years of age)</em>
+              </div>
+              <div class="date">
+                <label for="guardianDate">Date:</label>
+                <div class="signature-line"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="guardianName">Parent/Guardian Name (Printed):</label>
+              <input type="text" id="guardianName" class="input-field" name="guardianName" />
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>WITNESS</h2>
+          <div class="form-section">
+            <div class="signature-field">
+              <div class="signature">
+                <label for="witnessSignature">Witness Signature:</label>
+                <div class="signature-line"></div>
+              </div>
+              <div class="date">
+                <label for="witnessDate">Date:</label>
+                <div class="signature-line"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="witnessName">Witness Name (Printed):</label>
+              <input type="text" id="witnessName" class="input-field" name="witnessName" />
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <p class="footer-note">
+          This form should be reviewed by legal counsel familiar with the laws of your state before
+          use. This template is provided for informational purposes only and does not constitute
+          legal advice.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

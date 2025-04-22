@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memorandum of Understanding for Trail Development and Maintenance</title>
+    <style>
+      :root {
+        --official-blue: #1a3a6e;
+        --official-light-blue: #4a6ea5;
+        --official-accent: #7c334f;
+        --official-gold: #b38c52;
+        --official-tan: #e6d9b8;
+        --dark-text: #333333;
+        --light-text: #666666;
+        --border-color: #cccccc;
+        --light-bg: #f5f5f5;
+        --white: #ffffff;
+        --section-bg: #f9f9f9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        line-height: 1.6;
+        color: var(--dark-text);
+        background-color: var(--light-bg);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--official-blue);
+        color: var(--white);
+        padding: 40px 60px;
+        text-align: center;
+        border-bottom: 10px solid var(--official-gold);
+      }
+
+      .document-title {
+        margin-bottom: 15px;
+        font-size: 2.4rem;
+        font-weight: bold;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .document-subtitle {
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: var(--official-tan);
+      }
+
+      .parties {
+        background-color: var(--section-bg);
+        padding: 20px 60px 30px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .party {
+        margin: 20px 0;
+      }
+
+      .party-heading {
+        margin-bottom: 15px;
+        color: var(--official-blue);
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+
+      .party-details {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: 10px;
+        margin-left: 20px;
+      }
+
+      .detail-label {
+        font-weight: bold;
+        color: var(--light-text);
+      }
+
+      main {
+        padding: 40px 60px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background-color: var(--white);
+        padding: 20px 0;
+      }
+
+      .section-number {
+        color: var(--official-blue);
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        color: var(--official-blue);
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--official-gold);
+        padding-bottom: 10px;
+      }
+
+      .section-content {
+        margin-bottom: 20px;
+      }
+
+      .subsection {
+        margin: 25px 0;
+      }
+
+      .subsection-title {
+        color: var(--official-accent);
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .bullet-list {
+        list-style-type: none;
+        margin-left: 0;
+      }
+
+      .bullet-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px;
+      }
+
+      .bullet-list li::before {
+        content: '•';
+        position: absolute;
+        left: 5px;
+        color: var(--official-gold);
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+
+      .signature-section {
+        margin-top: 50px;
+        page-break-inside: avoid;
+      }
+
+      .signature-block {
+        margin: 30px 0;
+      }
+
+      .signature-line {
+        border-top: 1px solid var(--dark-text);
+        width: 100%;
+        max-width: 300px;
+        margin: 40px 0 10px;
+      }
+
+      .signature-name {
+        font-weight: bold;
+      }
+
+      .exhibit-section {
+        margin-top: 60px;
+        page-break-before: always;
+      }
+
+      .exhibit-list {
+        list-style-type: none;
+        margin-left: 0;
+      }
+
+      .exhibit-list li {
+        padding: 10px 15px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 10px;
+        background-color: var(--section-bg);
+      }
+
+      @media (max-width: 768px) {
+        header,
+        .parties,
+        main {
+          padding: 20px 30px;
+        }
+
+        .document-title {
+          font-size: 2rem;
+        }
+
+        .document-subtitle {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+          size: letter;
+        }
+
+        .section {
+          page-break-inside: avoid;
+        }
+
+        .signature-section {
+          page-break-before: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="document-title">Memorandum of Understanding</h1>
+        <h2 class="document-subtitle">For Trail Development and Maintenance</h2>
+      </header>
+
+      <div class="parties">
+        <h2 class="section-title">BETWEEN:</h2>
+
+        <div class="party">
+          <h3 class="party-heading">
+            <strong>[PUBLIC LAND AGENCY NAME]</strong> (hereinafter referred to as the "Agency")
+          </h3>
+          <div class="party-details">
+            <span class="detail-label">Address:</span>
+            <span>[Agency Address]</span>
+
+            <span class="detail-label">Phone:</span>
+            <span>[Agency Phone]</span>
+
+            <span class="detail-label">Email:</span>
+            <span>[Agency Email]</span>
+
+            <span class="detail-label">Representative:</span>
+            <span>[Agency Representative Name and Title]</span>
+          </div>
+        </div>
+
+        <h2 class="section-title">AND:</h2>
+
+        <div class="party">
+          <h3 class="party-heading">
+            <strong>[TRAIL ORGANIZATION NAME]</strong> (hereinafter referred to as the
+            "Organization")
+          </h3>
+          <div class="party-details">
+            <span class="detail-label">Address:</span>
+            <span>[Organization Address]</span>
+
+            <span class="detail-label">Phone:</span>
+            <span>[Organization Phone]</span>
+
+            <span class="detail-label">Email:</span>
+            <span>[Organization Email]</span>
+
+            <span class="detail-label">Representative:</span>
+            <span>[Organization Representative Name and Title]</span>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <section class="section">
+          <h2 class="section-number">1. PURPOSE AND OBJECTIVES</h2>
+
+          <div class="section-content">
+            <p>
+              This Memorandum of Understanding ("MOU") establishes a cooperative relationship
+              between the Agency and the Organization for the planning, development, construction,
+              and maintenance of recreational trails on public lands managed by the Agency.
+            </p>
+
+            <p>The objectives of this MOU are to:</p>
+
+            <ul class="bullet-list">
+              <li>
+                Develop sustainable recreational trails that enhance public enjoyment of public
+                lands
+              </li>
+              <li>
+                Establish clear roles and responsibilities for trail planning, construction, and
+                maintenance
+              </li>
+              <li>Promote environmental stewardship and conservation</li>
+              <li>Engage community volunteers in public land management</li>
+              <li>Provide diverse recreational opportunities for the public</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">2. PROPERTY DESCRIPTION</h2>
+
+          <div class="section-content">
+            <p>This MOU applies to the following public lands managed by the Agency:</p>
+
+            <div class="party-details">
+              <span class="detail-label">Management Unit:</span>
+              <span>[Forest/Park/Recreation Area Name]</span>
+
+              <span class="detail-label">Location:</span>
+              <span>[County, State]</span>
+
+              <span class="detail-label">Total Project Area:</span>
+              <span>Approximately [X] acres</span>
+
+              <span class="detail-label">Trail System:</span>
+              <span>[Trail System Name]</span>
+            </div>
+
+            <p>
+              The specific areas subject to this MOU are depicted in the attached map (Exhibit A).
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">3. TERM AND RENEWAL</h2>
+
+          <div class="section-content">
+            <p>
+              This MOU shall be effective for a period of [NUMBER] years, commencing on [START DATE]
+              and ending on [END DATE], unless terminated earlier as provided herein.
+            </p>
+
+            <p>
+              This MOU may be renewed for additional [NUMBER]-year terms upon written agreement of
+              both parties at least [NUMBER] days prior to the expiration date.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">4. AGENCY RESPONSIBILITIES</h2>
+
+          <div class="section-content">
+            <p>The Agency agrees to:</p>
+
+            <div class="subsection">
+              <h3 class="subsection-title">4.1 Planning and Approval</h3>
+              <ul class="bullet-list">
+                <li>Review and process trail proposals in a timely manner</li>
+                <li>Conduct necessary environmental reviews and assessments</li>
+                <li>Issue required permits and authorizations</li>
+                <li>Provide maps, GIS data, and other relevant information</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">4.2 Technical Assistance</h3>
+              <ul class="bullet-list">
+                <li>Provide technical guidance on trail design and construction</li>
+                <li>Assist with identifying and addressing environmental concerns</li>
+                <li>Advise on compliance with applicable laws and regulations</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">4.3 Resources</h3>
+              <ul class="bullet-list">
+                <li>Provide access to the project area for authorized activities</li>
+                <li>Consider requests for material resources when available</li>
+                <li>
+                  Recognize volunteer hours as in-kind contributions for grant matching purposes
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">5. ORGANIZATION RESPONSIBILITIES</h2>
+
+          <div class="section-content">
+            <p>The Organization agrees to:</p>
+
+            <div class="subsection">
+              <h3 class="subsection-title">5.1 Planning and Design</h3>
+              <ul class="bullet-list">
+                <li>Develop trail proposals consistent with Agency management plans</li>
+                <li>Design trails according to sustainable standards</li>
+                <li>Submit detailed plans for Agency review and approval</li>
+                <li>Obtain all necessary permits and authorizations</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">5.2 Construction</h3>
+              <ul class="bullet-list">
+                <li>Construct trails according to approved plans and specifications</li>
+                <li>Use sustainable trail building techniques</li>
+                <li>Minimize environmental impacts</li>
+                <li>Provide qualified supervision for volunteer work</li>
+                <li>Document and report construction activities</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">5.3 Maintenance</h3>
+              <ul class="bullet-list">
+                <li>Perform regular trail inspections</li>
+                <li>Conduct routine and seasonal maintenance</li>
+                <li>Address safety hazards promptly</li>
+                <li>Organize volunteer maintenance events</li>
+                <li>Document and report maintenance activities</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">5.4 Volunteer Management</h3>
+              <ul class="bullet-list">
+                <li>Recruit, train, and supervise volunteers</li>
+                <li>Ensure volunteers sign appropriate waivers</li>
+                <li>Track and report volunteer hours</li>
+                <li>Provide safety training and equipment</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">5.5 Funding</h3>
+              <ul class="bullet-list">
+                <li>Seek grants and donations to support trail projects</li>
+                <li>Manage project budgets responsibly</li>
+                <li>Provide financial reports as required</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">6. JOINT RESPONSIBILITIES</h2>
+
+          <div class="section-content">
+            <p>Both parties agree to:</p>
+
+            <div class="subsection">
+              <h3 class="subsection-title">6.1 Communication</h3>
+              <ul class="bullet-list">
+                <li>Designate primary points of contact</li>
+                <li>Hold regular coordination meetings</li>
+                <li>Provide timely updates on project status</li>
+                <li>Address issues collaboratively</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">6.2 Public Outreach</h3>
+              <ul class="bullet-list">
+                <li>Coordinate public communications</li>
+                <li>Acknowledge partnership in publications and signage</li>
+                <li>Conduct joint public meetings when appropriate</li>
+                <li>Promote responsible trail use</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">6.3 Evaluation</h3>
+              <ul class="bullet-list">
+                <li>Jointly evaluate trail conditions and usage</li>
+                <li>Review partnership effectiveness annually</li>
+                <li>Adapt management approaches as needed</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">7. TRAIL STANDARDS AND SPECIFICATIONS</h2>
+
+          <div class="section-content">
+            <div class="subsection">
+              <h3 class="subsection-title">7.1 Design Standards</h3>
+              <p>All trails shall be designed according to:</p>
+              <ul class="bullet-list">
+                <li>[Applicable Agency standards]</li>
+                <li>International Mountain Bicycling Association (IMBA) Trail Standards</li>
+                <li>Universal Trail Assessment Process (UTAP) guidelines where applicable</li>
+                <li>[Other relevant standards]</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">7.2 Sustainability Requirements</h3>
+              <p>Trail design and construction shall incorporate:</p>
+              <ul class="bullet-list">
+                <li>Sustainable grades and alignments</li>
+                <li>Effective drainage features</li>
+                <li>Erosion control measures</li>
+                <li>Minimal impact to sensitive resources</li>
+                <li>Climate resilience considerations</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">7.3 Signage</h3>
+              <p>Trail signage shall conform to Agency standards and include:</p>
+              <ul class="bullet-list">
+                <li>Trailhead information boards</li>
+                <li>Wayfinding markers</li>
+                <li>Regulatory and warning signs</li>
+                <li>Interpretive information where appropriate</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">8. PROJECT APPROVAL PROCESS</h2>
+
+          <div class="section-content">
+            <div class="subsection">
+              <h3 class="subsection-title">8.1 Proposal Submission</h3>
+              <p>The Organization shall submit trail proposals including:</p>
+              <ul class="bullet-list">
+                <li>Detailed maps and alignments</li>
+                <li>Design specifications</li>
+                <li>Construction methods</li>
+                <li>Timeline and phasing</li>
+                <li>Maintenance plan</li>
+                <li>Budget and funding sources</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">8.2 Agency Review</h3>
+              <p>The Agency shall:</p>
+              <ul class="bullet-list">
+                <li>Review proposals for consistency with management plans</li>
+                <li>Conduct site visits and field reviews</li>
+                <li>Identify any concerns or required modifications</li>
+                <li>Determine level of environmental analysis required</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">8.3 Authorization</h3>
+              <p>Upon approval, the Agency shall issue:</p>
+              <ul class="bullet-list">
+                <li>Written authorization to proceed</li>
+                <li>Specific permits as required</li>
+                <li>Any special conditions or mitigation requirements</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">9. LIABILITY AND INSURANCE</h2>
+
+          <div class="section-content">
+            <div class="subsection">
+              <h3 class="subsection-title">9.1 Insurance Requirements</h3>
+              <p>The Organization shall maintain:</p>
+              <ul class="bullet-list">
+                <li>General liability insurance with minimum coverage of $[AMOUNT]</li>
+                <li>Volunteer accident insurance</li>
+                <li>[Other required insurance]</li>
+              </ul>
+              <p>
+                The Organization shall provide certificates of insurance naming the Agency as an
+                additional insured.
+              </p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">9.2 Volunteer Protection</h3>
+              <p>The Organization shall ensure all volunteers:</p>
+              <ul class="bullet-list">
+                <li>Sign Agency-approved volunteer agreements</li>
+                <li>Receive appropriate safety training</li>
+                <li>Use required personal protective equipment</li>
+                <li>Work within the scope of authorized activities</li>
+              </ul>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">9.3 Indemnification</h3>
+              <p>
+                The Organization agrees to indemnify the Agency to the extent allowed by law for
+                claims arising from Organization activities, except where caused by Agency
+                negligence.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">10. TERMINATION</h2>
+
+          <div class="section-content">
+            <div class="subsection">
+              <h3 class="subsection-title">10.1 Termination by Notice</h3>
+              <p>Either party may terminate this MOU with [NUMBER] days written notice.</p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">10.2 Termination for Cause</h3>
+              <p>This MOU may be terminated immediately for material breach of its terms.</p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">10.3 Effect of Termination</h3>
+              <p>Upon termination:</p>
+              <ul class="bullet-list">
+                <li>Ongoing construction shall be halted or completed as mutually agreed</li>
+                <li>The Organization shall remove temporary structures and equipment</li>
+                <li>The Agency shall assume responsibility for completed trails</li>
+                <li>Both parties shall meet to determine final disposition of projects</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">11. FUNDING AND FISCAL CONSIDERATIONS</h2>
+
+          <div class="section-content">
+            <div class="subsection">
+              <h3 class="subsection-title">11.1 No Financial Obligation</h3>
+              <p>This MOU does not obligate funds from either party.</p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">11.2 Separate Agreements</h3>
+              <p>
+                Specific projects requiring funding shall be addressed through separate agreements.
+              </p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">11.3 Grants and Donations</h3>
+              <p>
+                The Organization may apply for grants and accept donations to support trail projects
+                with Agency approval.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">12. MISCELLANEOUS PROVISIONS</h2>
+
+          <div class="section-content">
+            <div class="subsection">
+              <h3 class="subsection-title">12.1 Non-Exclusive Agreement</h3>
+              <p>
+                This MOU is non-exclusive and does not preclude either party from entering similar
+                agreements with other entities.
+              </p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">12.2 Compliance with Laws</h3>
+              <p>
+                All activities shall comply with applicable federal, state, and local laws and
+                regulations.
+              </p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">12.3 Modification</h3>
+              <p>This MOU may only be modified by written amendment signed by both parties.</p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">12.4 No Third-Party Beneficiaries</h3>
+              <p>This MOU does not create any rights or benefits for third parties.</p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">12.5 Dispute Resolution</h3>
+              <p>Disputes shall be resolved through good faith negotiation between the parties.</p>
+            </div>
+
+            <div class="subsection">
+              <h3 class="subsection-title">12.6 Public Information</h3>
+              <p>This MOU and related documents may be subject to public disclosure laws.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section signature-section">
+          <h2 class="section-number">13. SIGNATURES</h2>
+
+          <div class="section-content">
+            <p>
+              IN WITNESS WHEREOF, the parties have executed this MOU as of the date first written
+              above.
+            </p>
+
+            <div class="signature-block">
+              <p><strong>AGENCY:</strong></p>
+              <div class="signature-line"></div>
+              <p class="signature-name">[AGENCY REPRESENTATIVE NAME]</p>
+              <p>[TITLE]</p>
+              <p>[AGENCY NAME]</p>
+              <p>Date: _________________</p>
+            </div>
+
+            <div class="signature-block">
+              <p><strong>ORGANIZATION:</strong></p>
+              <div class="signature-line"></div>
+              <p class="signature-name">[ORGANIZATION REPRESENTATIVE NAME]</p>
+              <p>[TITLE]</p>
+              <p>[ORGANIZATION NAME]</p>
+              <p>Date: _________________</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section exhibit-section">
+          <h2 class="section-title">EXHIBITS</h2>
+
+          <ul class="exhibit-list">
+            <li>Exhibit A: Project Area Map</li>
+            <li>Exhibit B: Trail System Concept Plan</li>
+            <li>Exhibit C: Agency Volunteer Agreement Form</li>
+            <li>Exhibit D: Annual Work Plan Template</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

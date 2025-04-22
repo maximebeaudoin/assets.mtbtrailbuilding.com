@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forest Service Trail Proposal Guide</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .case-study {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .case-study h4 {
+        color: var(--forest);
+        margin-top: 0;
+      }
+
+      .challenge {
+        background-color: rgba(224, 122, 95, 0.1);
+        border-left: 4px solid var(--sunset);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .challenge h4 {
+        color: var(--sunset);
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      .solutions h5 {
+        color: var(--rock);
+        margin: 15px 0 10px;
+        font-weight: 600;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      .resources-section {
+        background-color: rgba(210, 180, 140, 0.2);
+        padding: 20px;
+        border-radius: 4px;
+        margin: 30px 0;
+      }
+
+      .process-step {
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .step-number {
+        background-color: var(--forest);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .step-content h4 {
+        margin-top: 3px;
+        margin-bottom: 10px;
+      }
+
+      .appendix {
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin: 5px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th {
+        background-color: var(--forest);
+        color: white;
+        padding: 10px;
+        text-align: left;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      pre,
+      code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      pre {
+        padding: 15px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+      }
+
+      blockquote {
+        border-left: 4px solid var(--sand);
+        padding: 10px 20px;
+        margin: 20px 0;
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      a {
+        color: var(--forest);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: var(--sand);
+        margin: 40px 0;
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>FOREST SERVICE TRAIL PROPOSAL GUIDE</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>INTRODUCTION</h2>
+          <p>
+            This guide provides a comprehensive framework for developing and submitting trail
+            proposals to the United States Forest Service (USFS). It is designed to help mountain
+            bike organizations, trail advocates, and community groups navigate the USFS approval
+            process effectively.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>UNDERSTANDING THE FOREST SERVICE</h2>
+
+          <h3>Agency Structure</h3>
+          <p>The USFS is organized into several levels:</p>
+          <ul>
+            <li><strong>National Headquarters</strong>: Sets overall policy and direction</li>
+            <li><strong>Regional Offices</strong>: Oversee multiple National Forests</li>
+            <li>
+              <strong>Forest Supervisor's Office</strong>: Manages individual National Forests
+            </li>
+            <li>
+              <strong>Ranger Districts</strong>: Local offices that manage specific areas within a
+              National Forest
+            </li>
+          </ul>
+          <p>
+            For trail proposals, your primary contacts will typically be at the Ranger District
+            level, though larger projects may involve the Forest Supervisor's Office.
+          </p>
+
+          <h3>Key Personnel</h3>
+          <p>Identify and build relationships with:</p>
+          <ul>
+            <li><strong>District Ranger</strong>: The decision-maker for most trail proposals</li>
+            <li>
+              <strong>Recreation Staff Officer</strong>: Oversees recreation programs and planning
+            </li>
+            <li>
+              <strong>Trails Specialist/Coordinator</strong>: Technical expert on trail design and
+              management
+            </li>
+            <li><strong>NEPA Coordinator</strong>: Manages environmental review processes</li>
+            <li>
+              <strong>Public Affairs Officer</strong>: Handles public communications and engagement
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>FOREST SERVICE PLANNING FRAMEWORK</h2>
+
+          <h3>Land Management Plans</h3>
+          <p>
+            All activities on National Forest land must be consistent with the applicable Land and
+            Resource Management Plan (Forest Plan). Before developing a proposal, review the current
+            Forest Plan to ensure your project aligns with management direction.
+          </p>
+
+          <h3>Travel Management</h3>
+          <p>
+            The USFS manages motorized and non-motorized travel through the Travel Management Rule.
+            Your proposal must comply with existing Travel Management Decisions or may need to be
+            incorporated into Travel Management planning.
+          </p>
+
+          <h3>NEPA Process</h3>
+          <p>
+            The National Environmental Policy Act (NEPA) requires federal agencies to assess
+            environmental impacts before making decisions. Trail proposals typically require NEPA
+            analysis, which may take the form of:
+          </p>
+          <ul>
+            <li>
+              <strong>Categorical Exclusion (CE)</strong>: For projects with minimal environmental
+              impact
+            </li>
+            <li>
+              <strong>Environmental Assessment (EA)</strong>: For projects with uncertain impacts
+            </li>
+            <li>
+              <strong>Environmental Impact Statement (EIS)</strong>: For major projects with
+              significant impacts
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>DEVELOPING YOUR PROPOSAL</h2>
+
+          <h3>Pre-Proposal Research</h3>
+          <ol>
+            <li>
+              <h4>Review Existing Plans</h4>
+              <ul>
+                <li>Forest Plan</li>
+                <li>Travel Management Plan</li>
+                <li>Recreation Opportunity Spectrum (ROS) classifications</li>
+                <li>Special area designations (Wilderness, Research Natural Areas, etc.)</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>Identify Management Constraints</h4>
+              <ul>
+                <li>Protected species and habitats</li>
+                <li>Cultural/historical resources</li>
+                <li>Riparian areas and wetlands</li>
+                <li>Existing uses and user groups</li>
+              </ul>
+            </li>
+
+            <li>
+              <h4>Understand Local Priorities</h4>
+              <ul>
+                <li>Meet with USFS staff to discuss recreation goals</li>
+                <li>Review Capital Improvement Plans</li>
+                <li>Identify maintenance backlogs and capacity issues</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>Proposal Components</h3>
+          <p>A complete trail proposal should include:</p>
+
+          <h4>1. Project Overview</h4>
+          <ul>
+            <li>Project name and location</li>
+            <li>Proposing organization(s)</li>
+            <li>Primary contact information</li>
+            <li>Brief summary of proposed action</li>
+          </ul>
+
+          <h4>2. Purpose and Need</h4>
+          <ul>
+            <li>Clearly articulate why the project is needed</li>
+            <li>Identify benefits to the public and the Forest Service</li>
+            <li>Explain how the project supports Forest Plan goals</li>
+          </ul>
+
+          <h4>3. Detailed Project Description</h4>
+          <ul>
+            <li>Trail specifications (length, width, difficulty, user types)</li>
+            <li>Construction methods and standards</li>
+            <li>Proposed timeline and phasing</li>
+            <li>Maps and GIS data</li>
+          </ul>
+
+          <h4>4. Resource Considerations</h4>
+          <ul>
+            <li>Potential environmental impacts and mitigation measures</li>
+            <li>Cultural resource considerations</li>
+            <li>Wildlife and plant considerations</li>
+            <li>Soil and water quality protections</li>
+          </ul>
+
+          <h4>5. Stakeholder Engagement</h4>
+          <ul>
+            <li>Public outreach conducted or planned</li>
+            <li>Support from local communities</li>
+            <li>Coordination with other user groups</li>
+            <li>Letters of support</li>
+          </ul>
+
+          <h4>6. Implementation Plan</h4>
+          <ul>
+            <li>Construction approach (contractor, volunteer, USFS, or combination)</li>
+            <li>Funding sources and budget</li>
+            <li>Long-term maintenance strategy</li>
+            <li>Monitoring plan</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>SUBMISSION AND REVIEW PROCESS</h2>
+
+          <h3>Initial Contact</h3>
+          <ol>
+            <li>Schedule an informal meeting with district staff to discuss your concept</li>
+            <li>Incorporate their feedback before formal submission</li>
+            <li>
+              Identify the appropriate submission process (some forests have specific forms or
+              procedures)
+            </li>
+          </ol>
+
+          <h3>Formal Submission</h3>
+          <p>Submit your proposal according to local requirements, typically including:</p>
+          <ul>
+            <li>Cover letter</li>
+            <li>Complete proposal package</li>
+            <li>Supporting documentation</li>
+            <li>GIS data in compatible format</li>
+          </ul>
+
+          <h3>Review Timeline</h3>
+          <p>The review process typically includes:</p>
+          <ol>
+            <li>
+              <strong>Initial Screening</strong> (1-2 months): Determine if proposal merits further
+              consideration
+            </li>
+            <li>
+              <strong>Preliminary Assessment</strong> (2-3 months): Evaluate feasibility and
+              resource concerns
+            </li>
+            <li>
+              <strong>NEPA Process</strong> (6-24+ months): Environmental analysis and public
+              comment
+            </li>
+            <li><strong>Decision</strong> (1-2 months): Final approval or denial</li>
+            <li>
+              <strong>Implementation Planning</strong> (2-3 months): Develop detailed work plans
+            </li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <h2>KEYS TO SUCCESS</h2>
+
+          <h3>Building Agency Partnerships</h3>
+          <ul>
+            <li>
+              <strong>Start Early</strong>: Begin discussions with USFS staff years before desired
+              implementation
+            </li>
+            <li><strong>Be Patient</strong>: Understand that agency processes take time</li>
+            <li><strong>Be Helpful</strong>: Look for ways to support USFS goals and capacity</li>
+            <li>
+              <strong>Be Consistent</strong>: Maintain regular communication and follow through on
+              commitments
+            </li>
+          </ul>
+
+          <h3>Addressing Common Concerns</h3>
+          <ul>
+            <li>
+              <strong>Maintenance Capacity</strong>: Develop robust volunteer programs and
+              maintenance endowments
+            </li>
+            <li>
+              <strong>User Conflicts</strong>: Design trails to minimize conflicts and educate users
+            </li>
+            <li>
+              <strong>Environmental Impacts</strong>: Propose sustainable designs that minimize
+              resource damage
+            </li>
+            <li>
+              <strong>Cumulative Effects</strong>: Consider how your proposal fits with existing
+              trail systems
+            </li>
+          </ul>
+
+          <h3>Leveraging Resources</h3>
+          <ul>
+            <li>
+              <strong>Grants</strong>: Identify funding sources that can support both planning and
+              implementation
+            </li>
+            <li>
+              <strong>Partnerships</strong>: Collaborate with other organizations to strengthen
+              proposals
+            </li>
+            <li>
+              <strong>Professional Support</strong>: Consider hiring consultants for complex aspects
+              (NEPA, design)
+            </li>
+            <li>
+              <strong>Agency Programs</strong>: Explore USFS programs like Challenge Cost Share
+              Agreements
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>CASE STUDIES</h2>
+
+          <div class="case-study">
+            <h4>Success Story: Collaboration Creek Trail System</h4>
+            <p>
+              A local mountain bike club successfully partnered with the Forest Service to develop a
+              25-mile trail system by:
+            </p>
+            <ul>
+              <li>Forming a collaborative working group with diverse stakeholders</li>
+              <li>Funding environmental studies to reduce agency workload</li>
+              <li>Providing certified volunteer trail crews for construction</li>
+              <li>Establishing a maintenance endowment fund</li>
+            </ul>
+          </div>
+
+          <div class="challenge">
+            <h4>Lessons Learned: Ridgeline Project Challenges</h4>
+            <div class="solutions">
+              <h5>A proposed trail project faced significant delays due to:</h5>
+              <ul>
+                <li>Insufficient early coordination with wildlife biologists</li>
+                <li>Inadequate stakeholder engagement leading to public opposition</li>
+                <li>Unrealistic timeline expectations</li>
+                <li>Lack of clear maintenance commitments</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>APPENDICES</h2>
+
+          <div class="appendix">
+            <h3>A. Sample Proposal Template</h3>
+          </div>
+
+          <div class="appendix">
+            <h3>B. USFS Contact Information by Region</h3>
+          </div>
+
+          <div class="appendix">
+            <h3>C. Relevant Laws and Regulations</h3>
+          </div>
+
+          <div class="appendix">
+            <h3>D. Funding Resources</h3>
+          </div>
+
+          <div class="appendix">
+            <h3>E. Partnership Agreement Examples</h3>
+          </div>
+        </section>
+
+        <hr />
+
+        <p class="footer-note">
+          This guide is provided for informational purposes only and does not guarantee project
+          approval. Forest Service requirements and processes may vary by location and change over
+          time.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

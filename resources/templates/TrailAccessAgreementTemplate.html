@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trail Access Agreement Template</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .case-study {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .case-study h4 {
+        color: var(--forest);
+        margin-top: 0;
+      }
+
+      .challenge {
+        background-color: rgba(224, 122, 95, 0.1);
+        border-left: 4px solid var(--sunset);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .challenge h4 {
+        color: var(--sunset);
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      .solutions h5 {
+        color: var(--rock);
+        margin: 15px 0 10px;
+        font-weight: 600;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      .resources-section {
+        background-color: rgba(210, 180, 140, 0.2);
+        padding: 20px;
+        border-radius: 4px;
+        margin: 30px 0;
+      }
+
+      .process-step {
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .step-number {
+        background-color: var(--forest);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .step-content h4 {
+        margin-top: 3px;
+        margin-bottom: 10px;
+      }
+
+      .appendix {
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin: 5px 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th {
+        background-color: var(--forest);
+        color: white;
+        padding: 10px;
+        text-align: left;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      pre,
+      code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      pre {
+        padding: 15px;
+        overflow-x: auto;
+        margin-bottom: 20px;
+      }
+
+      blockquote {
+        border-left: 4px solid var(--sand);
+        padding: 10px 20px;
+        margin: 20px 0;
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      a {
+        color: var(--forest);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-color: var(--sand);
+        margin: 40px 0;
+      }
+
+      .party-info {
+        padding: 15px;
+        margin-bottom: 25px;
+        background-color: rgba(210, 180, 140, 0.1);
+        border-radius: 4px;
+      }
+
+      .signature-line {
+        border-top: 1px solid var(--rock);
+        margin: 30px 0 5px;
+        width: 250px;
+      }
+
+      .agreement-section {
+        margin-bottom: 30px;
+        padding-left: 15px;
+        border-left: 2px solid var(--olive);
+      }
+
+      .contract-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .field-label {
+        font-weight: bold;
+      }
+
+      .field-value {
+        font-style: italic;
+        color: var(--trail);
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>TRAIL ACCESS AGREEMENT</h1>
+      </header>
+
+      <main>
+        <section class="section contract-header">
+          <h2>BETWEEN:</h2>
+
+          <div class="party-info">
+            <p><strong>[LANDOWNER NAME]</strong> (hereinafter referred to as the "Landowner")</p>
+            <p>
+              <span class="field-label">Address:</span>
+              <span class="field-value">[Landowner Address]</span>
+            </p>
+            <p>
+              <span class="field-label">Phone:</span>
+              <span class="field-value">[Landowner Phone]</span>
+            </p>
+            <p>
+              <span class="field-label">Email:</span>
+              <span class="field-value">[Landowner Email]</span>
+            </p>
+          </div>
+
+          <h2>AND:</h2>
+
+          <div class="party-info">
+            <p>
+              <strong>[TRAIL ORGANIZATION NAME]</strong> (hereinafter referred to as the
+              "Organization")
+            </p>
+            <p>
+              <span class="field-label">Address:</span>
+              <span class="field-value">[Organization Address]</span>
+            </p>
+            <p>
+              <span class="field-label">Phone:</span>
+              <span class="field-value">[Organization Phone]</span>
+            </p>
+            <p>
+              <span class="field-label">Email:</span>
+              <span class="field-value">[Organization Email]</span>
+            </p>
+            <p>
+              <span class="field-label">Representative:</span>
+              <span class="field-value">[Representative Name and Title]</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="agreement-section">
+          <h2>1. PURPOSE</h2>
+          <p>
+            This Agreement establishes the terms and conditions under which the Landowner grants
+            permission to the Organization to construct, maintain, and allow public access to
+            recreational trails on the property described below.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>2. PROPERTY DESCRIPTION</h2>
+          <p>This Agreement applies to the following property owned by the Landowner:</p>
+
+          <p>
+            <span class="field-label">Legal Description:</span>
+            <span class="field-value">[Legal property description]</span><br />
+            <span class="field-label">Parcel ID:</span>
+            <span class="field-value">[Parcel/Tax ID]</span><br />
+            <span class="field-label">County:</span> <span class="field-value">[County]</span><br />
+            <span class="field-label">State:</span> <span class="field-value">[State]</span><br />
+            <span class="field-label">Total Acreage:</span>
+            <span class="field-value">[Acreage]</span>
+          </p>
+
+          <p>
+            The specific portion of the property subject to this Agreement is depicted in the
+            attached map (Exhibit A) and includes approximately
+            <span class="field-value">[X]</span> acres.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>3. TERM AND RENEWAL</h2>
+          <p>
+            This Agreement shall be effective for a period of
+            <span class="field-value">[NUMBER]</span> years, commencing on
+            <span class="field-value">[START DATE]</span> and ending on
+            <span class="field-value">[END DATE]</span>, unless terminated earlier as provided
+            herein.
+          </p>
+
+          <p>
+            This Agreement may be renewed for additional
+            <span class="field-value">[NUMBER]</span>-year terms upon written agreement of both
+            parties at least <span class="field-value">[NUMBER]</span> days prior to the expiration
+            date.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>4. TRAIL CONSTRUCTION AND MAINTENANCE</h2>
+
+          <h3>4.1 Trail Construction</h3>
+          <p>
+            The Organization shall have the right to construct recreational trails on the property
+            as shown in the attached trail plan (Exhibit B). Any significant deviation from the
+            approved trail plan requires written approval from the Landowner.
+          </p>
+
+          <h3>4.2 Construction Standards</h3>
+          <p>
+            All trails shall be constructed according to sustainable trail building standards as
+            established by the International Mountain Bicycling Association (IMBA) or equivalent
+            organization. Construction shall minimize environmental impact and erosion.
+          </p>
+
+          <h3>4.3 Maintenance Responsibilities</h3>
+          <p>The Organization shall be responsible for:</p>
+          <ul>
+            <li>Regular inspection of trails</li>
+            <li>
+              Routine maintenance including clearing fallen trees, repairing erosion damage, and
+              managing vegetation
+            </li>
+            <li>Maintaining trail signage</li>
+            <li>Addressing any safety concerns in a timely manner</li>
+          </ul>
+
+          <h3>4.4 Improvements</h3>
+          <p>The Organization may install and maintain the following improvements:</p>
+          <ul>
+            <li>Trail markers and signage</li>
+            <li>Bridges, culverts, and drainage features</li>
+            <li><span class="field-value">[Other approved structures]</span></li>
+          </ul>
+
+          <p>
+            Any additional improvements not listed above require prior written approval from the
+            Landowner.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>5. PUBLIC ACCESS</h2>
+
+          <h3>5.1 Permitted Uses</h3>
+          <p>The trails may be used for the following recreational activities:</p>
+          <ul>
+            <li>
+              <span class="field-value"
+                >[List permitted activities, e.g., hiking, mountain biking, etc.]</span
+              >
+            </li>
+          </ul>
+
+          <h3>5.2 Prohibited Uses</h3>
+          <p>The following activities are expressly prohibited:</p>
+          <ul>
+            <li>
+              Motorized vehicles (except for maintenance, emergency, or as specifically permitted)
+            </li>
+            <li>Hunting or discharge of firearms</li>
+            <li>Camping or fires</li>
+            <li><span class="field-value">[Other prohibited activities]</span></li>
+          </ul>
+
+          <h3>5.3 Hours of Access</h3>
+          <p>
+            Public access shall be limited to daylight hours, from sunrise to sunset, unless
+            otherwise agreed upon in writing.
+          </p>
+
+          <h3>5.4 Temporary Closures</h3>
+          <p>The Landowner reserves the right to temporarily close trails for:</p>
+          <ul>
+            <li>Forestry operations</li>
+            <li>Agricultural activities</li>
+            <li>Hunting seasons</li>
+            <li>Other land management activities</li>
+          </ul>
+
+          <p>
+            The Landowner shall provide at least <span class="field-value">[NUMBER]</span> days'
+            notice of any planned closure.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>6. LIABILITY AND INSURANCE</h2>
+
+          <h3>6.1 Liability Protection</h3>
+          <p>
+            The Organization shall maintain general liability insurance with minimum coverage of
+            $<span class="field-value">[AMOUNT]</span> per occurrence, naming the Landowner as an
+            additional insured. The Organization shall provide proof of insurance annually.
+          </p>
+
+          <h3>6.2 Recreational Use Statute</h3>
+          <p>
+            Both parties acknowledge that this Agreement is intended to invoke the protections of
+            <span class="field-value">[STATE]</span>'s Recreational Use Statute,
+            <span class="field-value">[CITATION]</span>, which limits the liability of landowners
+            who make their land available for public recreational use without charge.
+          </p>
+
+          <h3>6.3 Indemnification</h3>
+          <p>
+            The Organization agrees to indemnify, defend, and hold harmless the Landowner from any
+            claims, damages, or liabilities arising from the construction, maintenance, or public
+            use of the trails, except in cases of gross negligence or willful misconduct by the
+            Landowner.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>7. SIGNAGE</h2>
+
+          <h3>7.1 Required Signage</h3>
+          <p>The Organization shall install and maintain:</p>
+          <ul>
+            <li>Trailhead signs indicating permitted uses and hours</li>
+            <li>Boundary markers where trails enter and exit the property</li>
+            <li>Warning signs for any hazardous features</li>
+            <li>Signs acknowledging the Landowner's contribution (if desired by Landowner)</li>
+          </ul>
+
+          <h3>7.2 Rules and Regulations</h3>
+          <p>
+            All signage shall clearly communicate applicable rules and regulations to trail users.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>8. TERMINATION</h2>
+
+          <h3>8.1 Termination by Notice</h3>
+          <p>
+            Either party may terminate this Agreement with
+            <span class="field-value">[NUMBER]</span> days' written notice.
+          </p>
+
+          <h3>8.2 Termination for Cause</h3>
+          <p>This Agreement may be terminated immediately for material breach of its terms.</p>
+
+          <h3>8.3 Effect of Termination</h3>
+          <p>Upon termination, the Organization shall:</p>
+          <ul>
+            <li>Remove all signage and structures as requested by the Landowner</li>
+            <li>Restore the property to its original condition as reasonably practicable</li>
+            <li>Cease promoting or advertising the trails on the property</li>
+          </ul>
+        </section>
+
+        <section class="agreement-section">
+          <h2>9. TRANSFER OF PROPERTY</h2>
+          <p>If the Landowner sells or transfers the property, the Landowner shall:</p>
+          <ul>
+            <li>
+              Notify the Organization at least <span class="field-value">[NUMBER]</span> days prior
+              to transfer
+            </li>
+            <li>Inform the new owner of this Agreement</li>
+            <li>
+              Use reasonable efforts to secure the new owner's commitment to continue the Agreement
+            </li>
+          </ul>
+        </section>
+
+        <section class="agreement-section">
+          <h2>10. MISCELLANEOUS PROVISIONS</h2>
+
+          <h3>10.1 Entire Agreement</h3>
+          <p>
+            This Agreement constitutes the entire understanding between the parties and supersedes
+            all prior negotiations, understandings, and agreements.
+          </p>
+
+          <h3>10.2 Modification</h3>
+          <p>This Agreement may only be modified by a written instrument signed by both parties.</p>
+
+          <h3>10.3 Governing Law</h3>
+          <p>
+            This Agreement shall be governed by the laws of the State of
+            <span class="field-value">[STATE]</span>.
+          </p>
+
+          <h3>10.4 Dispute Resolution</h3>
+          <p>
+            Any disputes arising from this Agreement shall first be addressed through mediation
+            before pursuing other legal remedies.
+          </p>
+
+          <h3>10.5 No Partnership</h3>
+          <p>
+            Nothing in this Agreement shall be construed to create a partnership, joint venture, or
+            agency relationship between the parties.
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>11. SIGNATURES</h2>
+          <p>
+            IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first
+            written above.
+          </p>
+
+          <p><strong>LANDOWNER:</strong></p>
+          <div class="signature-line"></div>
+          <p>
+            [LANDOWNER NAME]<br />
+            Date: _____________
+          </p>
+
+          <p><strong>ORGANIZATION:</strong></p>
+          <div class="signature-line"></div>
+          <p>
+            [REPRESENTATIVE NAME]<br />
+            [TITLE]<br />
+            [ORGANIZATION NAME]<br />
+            Date: _____________
+          </p>
+        </section>
+
+        <section class="agreement-section">
+          <h2>EXHIBITS</h2>
+          <ul>
+            <li>Exhibit A: Property Map with Trail Corridor</li>
+            <li>Exhibit B: Trail Plan and Design</li>
+            <li>Exhibit C: Certificate of Insurance</li>
+          </ul>
+        </section>
+
+        <hr />
+
+        <p class="footer-note">
+          This agreement template is provided for informational purposes only and should be reviewed
+          by qualified legal counsel before use.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

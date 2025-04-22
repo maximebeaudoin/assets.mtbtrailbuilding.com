@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soil Assessment Guide for Trail Planning</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+        --clay: #a52a2a;
+        --loam: #8b4513;
+        --soil-dark: #3b2f2f;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+        background-image: linear-gradient(to bottom, var(--forest), var(--soil-dark));
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .case-study {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .case-study h4 {
+        color: var(--forest);
+        margin-top: 0;
+      }
+
+      .soil-property {
+        background-color: rgba(139, 69, 19, 0.1);
+        border-left: 4px solid var(--loam);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .field-test {
+        background-color: rgba(210, 180, 140, 0.2);
+        border: 1px solid var(--sand);
+        border-radius: 4px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .field-test h4 {
+        color: var(--trail);
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .test-steps {
+        list-style-type: none;
+        counter-reset: step-counter;
+        margin-left: 0;
+      }
+
+      .test-steps li {
+        counter-increment: step-counter;
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 35px;
+      }
+
+      .test-steps li::before {
+        content: counter(step-counter);
+        background-color: var(--trail);
+        color: white;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .checklist-section {
+        background-color: rgba(46, 87, 58, 0.05);
+        border: 1px solid rgba(46, 87, 58, 0.2);
+        border-radius: 4px;
+        padding: 15px 20px;
+        margin: 25px 0;
+      }
+
+      .checklist-item {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .checklist-item input[type='checkbox'] {
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th {
+        background-color: var(--forest);
+        color: white;
+        padding: 10px;
+        text-align: left;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      .soil-icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        vertical-align: middle;
+        background-color: currentColor;
+        display: inline-block;
+        border-radius: 4px;
+      }
+
+      .soil-sand {
+        color: var(--sand);
+      }
+
+      .soil-clay {
+        color: var(--clay);
+      }
+
+      .soil-loam {
+        color: var(--loam);
+      }
+
+      .soil-type-card {
+        border: 1px solid var(--sand);
+        border-radius: 4px;
+        padding: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .soil-type-content {
+        flex-grow: 1;
+      }
+
+      .soil-type-card h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+
+      .soil-texture-triangle {
+        width: 300px;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .soil-texture-triangle {
+          width: 100%;
+        }
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>SOIL ASSESSMENT GUIDE FOR TRAIL PLANNING</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>INTRODUCTION</h2>
+          <p>
+            Soil conditions are one of the most critical factors in sustainable trail design. This
+            guide provides mountain bike trail builders with practical methods to assess soil
+            characteristics, interpret findings, and make informed decisions about trail routing,
+            construction techniques, and maintenance requirements.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>WHY SOIL MATTERS</h2>
+          <p>Soil properties directly influence:</p>
+          <ul>
+            <li>
+              <strong>Trail Sustainability</strong>: How well the trail surface resists erosion and
+              user impacts
+            </li>
+            <li>
+              <strong>Construction Methods</strong>: What techniques and tools will be most
+              effective
+            </li>
+            <li>
+              <strong>Drainage Behavior</strong>: How water moves through and across the trail
+            </li>
+            <li><strong>Maintenance Needs</strong>: Frequency and type of maintenance required</li>
+            <li><strong>User Experience</strong>: Traction, firmness, and overall ride quality</li>
+            <li>
+              <strong>Environmental Impact</strong>: Potential for erosion, sedimentation, and
+              habitat disruption
+            </li>
+          </ul>
+          <p>
+            Understanding soil characteristics allows you to design trails that work with natural
+            conditions rather than against them.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>BASIC SOIL PROPERTIES</h2>
+
+          <h3>Soil Texture</h3>
+          <p>Soil texture refers to the proportion of sand, silt, and clay particles:</p>
+
+          <div class="soil-type-card soil-sand">
+            <span class="soil-icon"></span>
+            <div class="soil-type-content">
+              <h4>Sand (0.05-2.0mm)</h4>
+              <p>Drains quickly, low cohesion, feels gritty</p>
+            </div>
+          </div>
+
+          <div class="soil-type-card">
+            <span class="soil-icon" style="background-color: #deb887"></span>
+            <div class="soil-type-content">
+              <h4>Silt (0.002-0.05mm)</h4>
+              <p>Moderate drainage, moderate cohesion, feels smooth like flour</p>
+            </div>
+          </div>
+
+          <div class="soil-type-card soil-clay">
+            <span class="soil-icon"></span>
+            <div class="soil-type-content">
+              <h4>Clay (&lt;0.002mm)</h4>
+              <p>Drains poorly, high cohesion, feels sticky when wet</p>
+            </div>
+          </div>
+
+          <p>
+            The ideal soil for trails typically contains a mix of all three (loam), providing both
+            drainage and stability.
+          </p>
+
+          <h3>Soil Structure</h3>
+          <div class="soil-property">
+            <p>Structure refers to how soil particles clump together:</p>
+            <ul>
+              <li>
+                <strong>Granular</strong>: Small, rounded aggregates; typically good for trails
+              </li>
+              <li>
+                <strong>Blocky</strong>: Cube-like aggregates; can be suitable depending on size
+              </li>
+              <li>
+                <strong>Platy</strong>: Flat, plate-like layers; often problematic for drainage
+              </li>
+              <li><strong>Massive</strong>: No visible aggregates; often problematic for trails</li>
+            </ul>
+          </div>
+
+          <h3>Organic Content</h3>
+          <div class="soil-property">
+            <p>Organic matter affects soil behavior:</p>
+            <ul>
+              <li><strong>High organic content</strong>: Soft, spongy, decomposes over time</li>
+              <li><strong>Low organic content</strong>: More stable but may lack cohesion</li>
+              <li>
+                <strong>Topsoil</strong>: Upper layer rich in organics, typically removed during
+                construction
+              </li>
+              <li>
+                <strong>Subsoil</strong>: Lower layer with less organic matter, often used for trail
+                tread
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>FIELD ASSESSMENT TECHNIQUES</h2>
+
+          <h3>Simple Hand Tests</h3>
+
+          <div class="field-test">
+            <h4>Texture by Feel Method</h4>
+            <ol class="test-steps">
+              <li>Take a small handful of soil</li>
+              <li>Remove rocks, roots, and large organic matter</li>
+              <li>Add water gradually and knead until moist (like putty)</li>
+              <li>
+                Follow this decision tree:
+                <p style="margin-top: 10px">
+                  a. Try to form a ribbon by squeezing between thumb and forefinger:
+                </p>
+                <ul>
+                  <li>Soil falls apart: <strong>Sandy soil</strong></li>
+                  <li>Forms weak ribbon (&lt;1 inch): <strong>Loamy soil</strong></li>
+                  <li>Forms strong ribbon (&gt;1 inch): <strong>Clay soil</strong></li>
+                </ul>
+
+                <p>b. For sandy soil, feel for grittiness:</p>
+                <ul>
+                  <li>Very gritty: <strong>Sand</strong></li>
+                  <li>Somewhat gritty: <strong>Loamy sand</strong></li>
+                </ul>
+
+                <p>c. For loamy soil, feel for grittiness and silkiness:</p>
+                <ul>
+                  <li>Gritty: <strong>Sandy loam</strong></li>
+                  <li>Smooth and silky: <strong>Silt loam</strong></li>
+                  <li>Somewhat sticky: <strong>Clay loam</strong></li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="field-test">
+            <h4>Ball Test</h4>
+            <ol class="test-steps">
+              <li>Form a ball of moist soil about 1 inch in diameter</li>
+              <li>Toss it gently 1 foot in the air and catch</li>
+              <li>
+                Observe results:
+                <ul>
+                  <li>Ball breaks apart: <strong>Sandy soil</strong> (poor cohesion)</li>
+                  <li>
+                    Ball cracks but holds together: <strong>Loamy soil</strong> (good cohesion)
+                  </li>
+                  <li>Ball remains intact: <strong>Clay soil</strong> (high cohesion)</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <h3>Drainage Tests</h3>
+
+          <div class="field-test">
+            <h4>Percolation Test</h4>
+            <ol class="test-steps">
+              <li>Dig a hole 6 inches deep and 6 inches wide</li>
+              <li>Fill with water and let drain completely</li>
+              <li>
+                Refill and measure time to drain:
+                <ul>
+                  <li>&lt;10 minutes: <strong>Rapid drainage</strong> (sandy)</li>
+                  <li>10-30 minutes: <strong>Moderate drainage</strong> (loamy)</li>
+                  <li>&gt; 30 minutes: <strong>Slow drainage</strong> (clay)</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="field-test">
+            <h4>Puddle Observation</h4>
+            <p>After rain, observe how water behaves on potential trail corridors:</p>
+            <ul>
+              <li>Quick disappearance: <strong>Well-drained soil</strong></li>
+              <li>Standing water: <strong>Poorly drained soil</strong></li>
+              <li>Water flowing on surface: <strong>Potential erosion issues</strong></li>
+            </ul>
+          </div>
+
+          <h3>Soil Profile Assessment</h3>
+
+          <div class="field-test">
+            <h4>Test Pit Method</h4>
+            <ol class="test-steps">
+              <li>Dig a small pit 12-18 inches deep</li>
+              <li>
+                Examine soil layers (horizons):
+                <ul>
+                  <li>Note thickness of topsoil</li>
+                  <li>Identify changes in color and texture</li>
+                  <li>Look for hardpan layers or bedrock</li>
+                  <li>
+                    Check for mottling (spots of different colors indicating seasonal water table)
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="field-test">
+            <h4>Slope Cut Examination</h4>
+            <ol class="test-steps">
+              <li>Find existing cuts in the landscape (road cuts, stream banks)</li>
+              <li>Observe soil profile characteristics</li>
+              <li>Note how existing cuts are performing (stable vs. eroding)</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>INTERPRETING RESULTS FOR TRAIL DESIGN</h2>
+
+          <h3>Soil Texture Implications</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Soil Type</th>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+                <th>Design Considerations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sandy</td>
+                <td>Good drainage, doesn't get muddy</td>
+                <td>Low cohesion, erodes easily</td>
+                <td>Gentle grades (&lt;7%), frequent grade reversals, may need stabilization</td>
+              </tr>
+              <tr>
+                <td>Loamy</td>
+                <td>Good balance of drainage and stability</td>
+                <td>Moderate erosion resistance</td>
+                <td>Moderate grades (7-10%), standard drainage features</td>
+              </tr>
+              <tr>
+                <td>Clay</td>
+                <td>High stability when dry</td>
+                <td>Poor drainage, sticky when wet, shrinks/swells</td>
+                <td>
+                  Enhanced drainage features, consider seasonal closures, armoring in key areas
+                </td>
+              </tr>
+              <tr>
+                <td>Rocky</td>
+                <td>Very durable, natural armoring</td>
+                <td>Difficult construction, poor soil development</td>
+                <td>Can handle steeper grades, requires specialized construction techniques</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Drainage Implications</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Drainage Rate</th>
+                <th>Trail Implications</th>
+                <th>Recommended Techniques</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rapid</td>
+                <td>Low mud potential, high displacement potential</td>
+                <td>Contain loose material with edge barriers, maintain outslope</td>
+              </tr>
+              <tr>
+                <td>Moderate</td>
+                <td>Good trail conditions, moderate maintenance</td>
+                <td>Standard drainage features, regular maintenance</td>
+              </tr>
+              <tr>
+                <td>Slow</td>
+                <td>High mud potential, seasonal issues</td>
+                <td>Elevated tread, additional drainage features, seasonal closures</td>
+              </tr>
+              <tr>
+                <td>Very Slow</td>
+                <td>Significant challenges, often unsuitable</td>
+                <td>Consider rerouting, or use boardwalks and extensive drainage</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Slope and Soil Combinations</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Soil Type</th>
+                <th>Gentle Slopes (&lt;15%)</th>
+                <th>Moderate Slopes (15-30%)</th>
+                <th>Steep Slopes (&gt;30%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sandy</td>
+                <td>Good with proper design</td>
+                <td>Challenging, needs stabilization</td>
+                <td>Avoid if possible</td>
+              </tr>
+              <tr>
+                <td>Loamy</td>
+                <td>Excellent</td>
+                <td>Good with proper drainage</td>
+                <td>Possible with enhanced techniques</td>
+              </tr>
+              <tr>
+                <td>Clay</td>
+                <td>Good when dry, problematic when wet</td>
+                <td>Challenging, needs extensive drainage</td>
+                <td>Generally avoid</td>
+              </tr>
+              <tr>
+                <td>Rocky</td>
+                <td>Excellent</td>
+                <td>Good</td>
+                <td>Possible with proper technique</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>ADVANCED ASSESSMENT METHODS</h2>
+
+          <h3>Laboratory Testing</h3>
+          <p>For large or high-investment projects, consider professional soil testing:</p>
+          <ul>
+            <li><strong>Particle size analysis</strong>: Precise soil texture determination</li>
+            <li>
+              <strong>Organic content measurement</strong>: Exact percentage of organic matter
+            </li>
+            <li><strong>Compaction testing</strong>: Soil density and compaction potential</li>
+            <li><strong>Erosion potential</strong>: Specialized tests for erodibility</li>
+          </ul>
+
+          <h3>GIS and Remote Sensing</h3>
+          <ul>
+            <li>
+              <strong>Soil survey maps</strong>: USDA Natural Resources Conservation Service (NRCS)
+              soil maps
+            </li>
+            <li>
+              <strong>LiDAR data</strong>: High-resolution topography revealing drainage patterns
+            </li>
+            <li><strong>Aerial imagery</strong>: Historical patterns of vegetation and moisture</li>
+            <li>
+              <strong>Slope analysis</strong>: Identifying optimal trail corridors based on slope
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>SOIL AMENDMENTS AND TRAIL HARDENING</h2>
+          <p>Based on soil assessment, you may need to modify soil properties:</p>
+
+          <h3>For Sandy Soils</h3>
+          <ul>
+            <li>Add clay or crushed stone with fines to improve cohesion</li>
+            <li>Consider soil stabilizers for high-traffic areas</li>
+            <li>Use edge containment to prevent displacement</li>
+          </ul>
+
+          <h3>For Clay Soils</h3>
+          <ul>
+            <li>Add angular aggregate to improve drainage and reduce stickiness</li>
+            <li>Consider geotextile underlayment in wet areas</li>
+            <li>Implement proper crowning or outsloping for surface drainage</li>
+          </ul>
+
+          <h3>Hardening Techniques</h3>
+          <ul>
+            <li><strong>Aggregate surfacing</strong>: Various crushed stone materials</li>
+            <li><strong>Soil cement</strong>: Mixing native soil with portland cement</li>
+            <li><strong>Geotextiles</strong>: Stabilization fabrics under trail tread</li>
+            <li><strong>Rock armoring</strong>: Natural stone placement in problem areas</li>
+            <li><strong>Boardwalks</strong>: Elevated structures for very poor soils</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>SEASONAL CONSIDERATIONS</h2>
+          <p>Soil behavior changes with moisture content:</p>
+          <ul>
+            <li><strong>Spring conditions</strong>: Often saturated, maximum plasticity</li>
+            <li><strong>Summer conditions</strong>: Dry, may be dusty or hard</li>
+            <li><strong>Fall conditions</strong>: Moderate moisture, often ideal for assessment</li>
+            <li><strong>Winter conditions</strong>: Freeze/thaw cycles create unique challenges</li>
+          </ul>
+          <p>
+            Plan assessment during multiple seasons if possible, and design for worst-case
+            conditions.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>CASE STUDIES</h2>
+
+          <h3>Case Study 1: Sandy Ridge Trail System, Oregon</h3>
+          <div class="case-study">
+            <p>
+              <strong>Soil Challenge</strong>: Highly variable volcanic soils with both clay and
+              sandy areas
+            </p>
+            <p><strong>Assessment Method</strong>: Comprehensive soil mapping before design</p>
+            <p>
+              <strong>Solution</strong>: Trail routing specifically matched to soil types, with
+              different construction techniques for different soil zones
+            </p>
+            <p>
+              <strong>Outcome</strong>: Highly sustainable trail system with minimal maintenance
+              issues
+            </p>
+          </div>
+
+          <h3>Case Study 2: Duluth Traverse, Minnesota</h3>
+          <div class="case-study">
+            <p>
+              <strong>Soil Challenge</strong>: Thin soils over bedrock with poor drainage in many
+              areas
+            </p>
+            <p><strong>Assessment Method</strong>: Test pits and GIS analysis</p>
+            <p>
+              <strong>Solution</strong>: Extensive rock armoring, elevated tread, and seasonal trail
+              closures
+            </p>
+            <p><strong>Outcome</strong>: Sustainable trail network in challenging conditions</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>SOIL ASSESSMENT CHECKLIST</h2>
+
+          <h3>Pre-Field Preparation</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-1" />
+              <label for="check1-1">Review existing soil maps and data</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-2" />
+              <label for="check1-2"
+                >Gather assessment tools (shovel, water, sample containers)</label
+              >
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-3" />
+              <label for="check1-3">Prepare field maps or GPS units</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-4" />
+              <label for="check1-4">Check weather history (recent precipitation)</label>
+            </div>
+          </div>
+
+          <h3>Field Assessment</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-1" />
+              <label for="check2-1">Conduct texture-by-feel tests at regular intervals</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-2" />
+              <label for="check2-2">Perform drainage tests in representative areas</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-3" />
+              <label for="check2-3">Dig test pits at key locations</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-4" />
+              <label for="check2-4">Document findings with photos and GPS coordinates</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-5" />
+              <label for="check2-5">Note existing erosion issues or problem areas</label>
+            </div>
+          </div>
+
+          <h3>Analysis and Application</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-1" />
+              <label for="check3-1">Map soil types across the project area</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-2" />
+              <label for="check3-2">Identify optimal corridors based on soil properties</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-3" />
+              <label for="check3-3">Determine appropriate construction techniques</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-4" />
+              <label for="check3-4">Develop maintenance plans based on soil challenges</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-5" />
+              <label for="check3-5">Consider seasonal limitations and closures</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>RESOURCES</h2>
+
+          <h3>Tools and Equipment</h3>
+          <ul>
+            <li>Soil color charts (Munsell)</li>
+            <li>Clinometer for measuring slopes</li>
+            <li>GPS unit or smartphone app</li>
+            <li>Folding shovel or soil auger</li>
+            <li>Sample containers and labels</li>
+            <li>Field notebook and camera</li>
+          </ul>
+
+          <h3>Reference Materials</h3>
+          <ul>
+            <li>
+              USDA Soil Survey Maps:
+              <a href="https://websoilsurvey.nrcs.usda.gov" target="_blank"
+                >https://websoilsurvey.nrcs.usda.gov</a
+              >
+            </li>
+            <li>IMBA Trail Solutions Guide</li>
+            <li>Local extension office soil resources</li>
+            <li>Regional trail building guides with soil information</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>CONCLUSION</h2>
+          <p>
+            Thorough soil assessment is a foundational step in sustainable trail design. By
+            understanding the properties and behavior of soils in your project area, you can make
+            informed decisions that lead to trails that are more durable, require less maintenance,
+            and have minimal environmental impact. Remember that soil conditions can vary
+            significantly even within small areas, so thorough assessment throughout your project
+            corridor is essential.
+          </p>
+        </section>
+
+        <hr />
+
+        <p class="footer-note">
+          This guide is intended as an educational resource for trail builders. For large-scale or
+          environmentally sensitive projects, consider consulting with soil scientists or
+          geotechnical professionals.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

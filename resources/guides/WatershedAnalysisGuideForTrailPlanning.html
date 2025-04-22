@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watershed Analysis Guide for Trail Planning</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+        --water: #4682b4;
+        --water-light: rgba(70, 130, 180, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+        background-image: linear-gradient(to bottom, var(--forest), var(--water));
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .case-study {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .case-study h4 {
+        color: var(--forest);
+        margin-top: 0;
+      }
+
+      .watershed-component {
+        background-color: var(--water-light);
+        border-left: 4px solid var(--water);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .checklist-section {
+        background-color: rgba(46, 87, 58, 0.05);
+        border: 1px solid rgba(46, 87, 58, 0.2);
+        border-radius: 4px;
+        padding: 15px 20px;
+        margin: 25px 0;
+      }
+
+      .checklist-item {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .checklist-item input[type='checkbox'] {
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      .resources-section {
+        background-color: rgba(210, 180, 140, 0.2);
+        padding: 20px;
+        border-radius: 4px;
+        margin: 30px 0;
+      }
+
+      .process-step {
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .step-number {
+        background-color: var(--forest);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .techniques-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .technique-card {
+        border: 1px solid var(--sand);
+        border-radius: 4px;
+        padding: 15px;
+        background-color: rgba(210, 180, 140, 0.1);
+      }
+
+      .technique-card h4 {
+        color: var(--forest);
+        margin-top: 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--sand);
+        padding-bottom: 5px;
+      }
+
+      .text-water {
+        color: var(--water);
+      }
+
+      .text-forest {
+        color: var(--forest);
+      }
+
+      .bg-water-light {
+        background-color: var(--water-light);
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+
+      .icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      @media (max-width: 768px) {
+        .techniques-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>WATERSHED ANALYSIS GUIDE FOR TRAIL PLANNING</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>INTRODUCTION</h2>
+          <p>
+            Water is both a critical resource to protect and one of the most significant factors
+            affecting trail sustainability. This guide provides trail planners and builders with
+            methods to analyze watershed characteristics, identify drainage patterns, and design
+            trails that minimize impacts on water resources while ensuring long-term trail
+            sustainability.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>UNDERSTANDING WATERSHEDS</h2>
+
+          <h3>What is a Watershed?</h3>
+          <p>
+            A watershed (also called a catchment or drainage basin) is an area of land where all
+            precipitation that falls within it drains to a common outlet such as a stream, river,
+            lake, or wetland. Watersheds exist at multiple scales, from small local drainages to
+            massive river systems.
+          </p>
+
+          <h3>Watershed Components</h3>
+          <div class="watershed-component">
+            <ul>
+              <li><strong class="text-water">Ridgelines</strong>: Define watershed boundaries</li>
+              <li>
+                <strong class="text-water">Slopes</strong>: Determine water flow direction and
+                velocity
+              </li>
+              <li><strong class="text-water">Valleys</strong>: Collect and channel water</li>
+              <li>
+                <strong class="text-water">Streams and Rivers</strong>: Transport water through the
+                landscape
+              </li>
+              <li><strong class="text-water">Wetlands</strong>: Store and filter water</li>
+              <li><strong class="text-water">Groundwater</strong>: Subsurface water movement</li>
+              <li>
+                <strong class="text-water">Soil and Vegetation</strong>: Influence infiltration and
+                runoff
+              </li>
+            </ul>
+          </div>
+
+          <h3>Why Watershed Analysis Matters for Trails</h3>
+          <ul>
+            <li>
+              <strong>Trail Sustainability</strong>: Proper drainage is essential for trail
+              longevity
+            </li>
+            <li>
+              <strong>Environmental Protection</strong>: Minimizing erosion and sedimentation
+              protects water quality
+            </li>
+            <li>
+              <strong>Regulatory Compliance</strong>: Many water features have legal protections
+            </li>
+            <li>
+              <strong>User Experience</strong>: Dry trails provide better recreation experiences
+            </li>
+            <li>
+              <strong>Maintenance Efficiency</strong>: Well-drained trails require less maintenance
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>WATERSHED MAPPING TECHNIQUES</h2>
+
+          <h3>Desktop Analysis</h3>
+
+          <h4>Topographic Map Interpretation</h4>
+          <ol>
+            <li>Identify ridgelines (watershed boundaries)</li>
+            <li>Locate streams, rivers, and water bodies</li>
+            <li>
+              Note contour line patterns indicating:
+              <ul>
+                <li>Valleys and drainages</li>
+                <li>Slope steepness</li>
+                <li>Aspect (direction slopes face)</li>
+              </ul>
+            </li>
+            <li>
+              Mark potential problem areas:
+              <ul>
+                <li>Stream crossings</li>
+                <li>Steep slopes</li>
+                <li>Confined valleys</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4>Digital Mapping Tools</h4>
+          <ul>
+            <li>
+              <strong>GIS Software</strong> (QGIS, ArcGIS)
+              <ul>
+                <li>Watershed delineation tools</li>
+                <li>Flow accumulation analysis</li>
+                <li>Slope and aspect mapping</li>
+                <li>Hydrologic modeling</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Online Resources</strong>
+              <ul>
+                <li>USGS StreamStats (streamstats.usgs.gov)</li>
+                <li>EPA How's My Waterway (mywaterway.epa.gov)</li>
+                <li>USGS National Hydrography Dataset</li>
+                <li>USGS 3DEP Elevation Program data</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4>LiDAR Analysis</h4>
+          <p>
+            LiDAR (Light Detection and Ranging) data provides high-resolution elevation information
+            that can reveal:
+          </p>
+          <ul>
+            <li>Subtle drainage patterns not visible on standard maps</li>
+            <li>Small streams and seeps</li>
+            <li>Microtopography affecting water flow</li>
+            <li>Previous erosion patterns</li>
+          </ul>
+
+          <h3>Field Assessment</h3>
+
+          <h4>Visual Watershed Assessment</h4>
+          <ol>
+            <li>Walk the proposed trail corridor in different weather conditions</li>
+            <li>
+              Identify and map:
+              <ul>
+                <li>Springs and seeps</li>
+                <li>Ephemeral (seasonal) streams</li>
+                <li>Wetlands and saturated soils</li>
+                <li>Existing drainage patterns</li>
+                <li>Evidence of past flooding or high water</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h4>Soil and Vegetation Indicators</h4>
+          <ul>
+            <li>
+              <strong>Hydric Soils</strong>: Dark colors, mottling, or gleying indicate periodic
+              saturation
+            </li>
+            <li>
+              <strong>Hydrophytic Vegetation</strong>: Certain plants indicate wet conditions:
+              <ul>
+                <li>Sedges, rushes, cattails</li>
+                <li>Willows, alders, and other water-loving trees</li>
+                <li>Mosses and certain ferns</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Erosion Signs</strong>: Rills, gullies, or exposed roots indicate active
+              erosion
+            </li>
+          </ul>
+
+          <h4>Stream Crossing Assessment</h4>
+          <p>For each potential stream crossing, document:</p>
+          <ol>
+            <li>Channel width, depth, and substrate</li>
+            <li>Bank stability and height</li>
+            <li>Evidence of high water levels</li>
+            <li>Upstream and downstream conditions</li>
+            <li>Aquatic habitat characteristics</li>
+            <li>Potential crossing structure options</li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <h2>ANALYZING WATERSHED CHARACTERISTICS</h2>
+
+          <h3>Drainage Density</h3>
+          <p>
+            Drainage density is the total length of streams divided by watershed area. Higher
+            density indicates:
+          </p>
+          <ul>
+            <li>More frequent stream crossings needed</li>
+            <li>Greater potential for water-related trail issues</li>
+            <li>More complex drainage management required</li>
+          </ul>
+
+          <h3>Slope Analysis</h3>
+          <p>Categorize slopes in the project area:</p>
+          <ul>
+            <li>
+              <strong>Gentle (0-10%)</strong>: Generally good for trails, may have drainage
+              challenges
+            </li>
+            <li>
+              <strong>Moderate (10-30%)</strong>: Ideal for sustainable trails with proper design
+            </li>
+            <li>
+              <strong>Steep (30-50%)</strong>: Challenging but possible with specialized techniques
+            </li>
+            <li>
+              <strong>Very Steep (>50%)</strong>: Generally avoid or use specialized structures
+            </li>
+          </ul>
+
+          <h3>Aspect and Sun Exposure</h3>
+          <p>Aspect (the direction a slope faces) affects:</p>
+          <ul>
+            <li><strong>Snow melt timing</strong>: North-facing slopes retain snow longer</li>
+            <li><strong>Soil moisture</strong>: North-facing slopes typically remain wetter</li>
+            <li><strong>Vegetation</strong>: Different plant communities affect drainage</li>
+            <li><strong>Trail drying</strong>: South-facing slopes dry faster after rain</li>
+          </ul>
+
+          <h3>Soil Infiltration Capacity</h3>
+          <p>Assess how quickly water enters the soil:</p>
+          <ul>
+            <li>
+              <strong>High infiltration</strong> (sandy soils): Less surface runoff but more trail
+              displacement
+            </li>
+            <li><strong>Moderate infiltration</strong> (loamy soils): Good balance for trails</li>
+            <li>
+              <strong>Low infiltration</strong> (clay soils): More surface runoff, greater erosion
+              potential
+            </li>
+          </ul>
+
+          <h3>Flood Frequency and Magnitude</h3>
+          <p>Understand the flooding regime:</p>
+          <ol>
+            <li>Research historical flood records</li>
+            <li>Look for high water marks on trees or banks</li>
+            <li>Check for debris accumulation indicating flood levels</li>
+            <li>Consider seasonal patterns (snowmelt, monsoon seasons, etc.)</li>
+            <li>Account for climate change projections</li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <h2>IDENTIFYING SENSITIVE WATER RESOURCES</h2>
+
+          <h3>Regulatory Considerations</h3>
+          <p>Many water resources have legal protections:</p>
+          <ul>
+            <li><strong>Wetlands</strong>: Often protected under Clean Water Act Section 404</li>
+            <li>
+              <strong>Streams</strong>: May require permits for crossings or nearby disturbance
+            </li>
+            <li><strong>Riparian Areas</strong>: Special management zones in many jurisdictions</li>
+            <li>
+              <strong>Water Supply Areas</strong>: Additional protections for drinking water sources
+            </li>
+          </ul>
+
+          <h3>Ecological Value Assessment</h3>
+          <p>Evaluate the ecological importance of water resources:</p>
+          <ul>
+            <li><strong>Habitat Quality</strong>: Presence of sensitive or important species</li>
+            <li><strong>Connectivity</strong>: Role in larger ecological networks</li>
+            <li><strong>Rarity</strong>: Unique or uncommon water feature types</li>
+            <li><strong>Condition</strong>: Pristine vs. previously impacted</li>
+          </ul>
+
+          <h3>Water Quality Considerations</h3>
+          <p>Identify water quality factors:</p>
+          <ul>
+            <li><strong>Existing Impairments</strong>: Already-compromised water bodies</li>
+            <li><strong>Sensitive Parameters</strong>: Temperature, sediment, nutrients, etc.</li>
+            <li><strong>Designated Uses</strong>: Drinking water, recreation, aquatic life</li>
+            <li><strong>Monitoring Data</strong>: Existing water quality information</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>TRAIL PLANNING STRATEGIES</h2>
+
+          <h3>Watershed-Friendly Trail Alignment</h3>
+          <ul>
+            <li>
+              <strong>Follow Ridgelines</strong>: When possible, keep trails on ridges to minimize
+              drainage issues
+            </li>
+            <li>
+              <strong>Use Side-Hill Alignments</strong>: Contour trails across slopes rather than
+              up/down
+            </li>
+            <li><strong>Avoid Valley Bottoms</strong>: Minimize time spent in drainage bottoms</li>
+            <li>
+              <strong>Cross Streams Perpendicular</strong>: Design crossings at 90° to flow
+              direction
+            </li>
+            <li>
+              <strong>Respect Buffers</strong>: Maintain appropriate distance from water bodies:
+              <ul>
+                <li>Streams: Typically 50-100 feet</li>
+                <li>Wetlands: 50-300 feet depending on sensitivity</li>
+                <li>Lakes/Ponds: 100-300 feet</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Managing Trail/Water Intersections</h3>
+
+          <h4>Stream Crossing Design Principles</h4>
+          <ol>
+            <li>
+              <strong>Minimize Number</strong>: Reduce total crossings through careful routing
+            </li>
+            <li>
+              <strong>Choose Stable Locations</strong>: Select naturally narrow, stable sections
+              with firm banks
+            </li>
+            <li><strong>Design for Peak Flows</strong>: Account for high water events</li>
+            <li>
+              <strong>Provide Clear Approaches</strong>: Design approaches to minimize erosion
+            </li>
+            <li>
+              <strong>Consider Aquatic Organisms</strong>: Maintain natural stream bed where
+              possible
+            </li>
+          </ol>
+
+          <h4>Crossing Structure Options</h4>
+          <div class="techniques-grid">
+            <div class="technique-card">
+              <h4>Bridges</h4>
+              <p>Minimal in-stream impact, spans entire channel</p>
+            </div>
+            <div class="technique-card">
+              <h4>Culverts</h4>
+              <p>Allows water to pass under trail, requires careful sizing</p>
+            </div>
+            <div class="technique-card">
+              <h4>Armored Fords</h4>
+              <p>Reinforced stream bed for crossing at grade</p>
+            </div>
+            <div class="technique-card">
+              <h4>Stepping Stones</h4>
+              <p>Natural crossing for smaller streams</p>
+            </div>
+            <div class="technique-card">
+              <h4>Boardwalks</h4>
+              <p>Elevated structures for wetland crossings</p>
+            </div>
+          </div>
+
+          <h3>Drainage Design</h3>
+
+          <h4>Trail Surface Drainage</h4>
+          <div class="techniques-grid">
+            <div class="technique-card">
+              <h4>Outslope</h4>
+              <p>5% cross-slope sheds water from trail</p>
+            </div>
+            <div class="technique-card">
+              <h4>Grade Reversals</h4>
+              <p>Periodic undulations force water off trail</p>
+            </div>
+            <div class="technique-card">
+              <h4>Knicks</h4>
+              <p>Subtle drainage outlets in the trail tread</p>
+            </div>
+            <div class="technique-card">
+              <h4>Rolling Grade Dips</h4>
+              <p>Combination of a knick and a grade reversal</p>
+            </div>
+            <div class="technique-card">
+              <h4>Water Bars</h4>
+              <p>Structures that divert water (use only when necessary)</p>
+            </div>
+          </div>
+
+          <h4>Managing Upslope Water</h4>
+          <ul>
+            <li><strong>Swales</strong>: Shallow channels that direct water away from trails</li>
+            <li><strong>Berms</strong>: Raised areas that prevent water from reaching trails</li>
+            <li><strong>Drains</strong>: Structures that capture and redirect water flow</li>
+            <li>
+              <strong>Vegetation Management</strong>: Maintaining plants that help control water
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>CONSTRUCTION TECHNIQUES FOR WATERSHED PROTECTION</h2>
+
+          <h3>Erosion and Sediment Control</h3>
+
+          <h4>During Construction</h4>
+          <ul>
+            <li>
+              <strong>Minimize Disturbance Area</strong>: Keep clearing and grubbing to minimum
+            </li>
+            <li><strong>Phase Construction</strong>: Limit open area at any given time</li>
+            <li>
+              <strong>Install Barriers</strong>: Silt fences, wattles, or other sediment controls
+            </li>
+            <li><strong>Temporary Stabilization</strong>: Mulch or temporary seeding</li>
+            <li><strong>Construction Timing</strong>: Work during drier seasons when possible</li>
+          </ul>
+
+          <h4>Post-Construction Stabilization</h4>
+          <ul>
+            <li><strong>Revegetation</strong>: Native species appropriate to site conditions</li>
+            <li>
+              <strong>Mulching</strong>: Organic materials to protect soil until vegetation
+              establishes
+            </li>
+            <li><strong>Erosion Control Blankets</strong>: For steep or sensitive areas</li>
+            <li>
+              <strong>Check Dams</strong>: Small structures in drainage features to slow water
+            </li>
+            <li><strong>Armoring</strong>: Rock placement to protect vulnerable areas</li>
+          </ul>
+
+          <h3>Wetland and Riparian Protection</h3>
+          <ul>
+            <li><strong>Boardwalk Construction</strong>: Techniques to minimize disturbance</li>
+            <li><strong>Helical Piles</strong>: Low-impact foundation system</li>
+            <li><strong>Geotextiles</strong>: Separation layers to protect sensitive soils</li>
+            <li><strong>Specialized Equipment</strong>: Low ground pressure machines</li>
+            <li><strong>Timing Restrictions</strong>: Working during frozen or dry periods</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>MONITORING AND MAINTENANCE</h2>
+
+          <h3>Post-Construction Monitoring</h3>
+          <ul>
+            <li><strong>Inspection Schedule</strong>: Regular checks, especially after storms</li>
+            <li>
+              <strong>Photo Points</strong>: Established locations for consistent documentation
+            </li>
+            <li>
+              <strong>Problem Indicators</strong>: Signs of developing issues:
+              <ul>
+                <li>Ponding water on trail</li>
+                <li>Sediment accumulation</li>
+                <li>Developing rills or gullies</li>
+                <li>Bank erosion near crossings</li>
+                <li>Structure damage or movement</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Adaptive Management</h3>
+          <ul>
+            <li>
+              <strong>Maintenance Prioritization</strong>: Focus on water-related issues first
+            </li>
+            <li><strong>Early Intervention</strong>: Address small problems before they grow</li>
+            <li><strong>Technique Refinement</strong>: Adjust approaches based on performance</li>
+            <li>
+              <strong>Seasonal Closures</strong>: Consider temporary closures during wet periods
+            </li>
+            <li><strong>Reroutes</strong>: Relocate persistently problematic trail sections</li>
+          </ul>
+
+          <h3>Water Quality Monitoring</h3>
+          <ul>
+            <li><strong>Simple Assessments</strong>: Visual clarity, presence of algae, etc.</li>
+            <li><strong>Citizen Science</strong>: Volunteer monitoring programs</li>
+            <li>
+              <strong>Professional Monitoring</strong>: Partnership with agencies or universities
+            </li>
+            <li>
+              <strong>Parameters to Consider</strong>: Turbidity, temperature, macroinvertebrates
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>CASE STUDIES</h2>
+
+          <h3>Case Study 1: Mountain Ridge Trail System</h3>
+          <div class="case-study">
+            <p>
+              <strong>Challenge</strong>: Trail system in steep terrain with numerous stream
+              crossings
+            </p>
+
+            <p><strong>Approach</strong>:</p>
+            <ul>
+              <li>Comprehensive GIS watershed analysis before design</li>
+              <li>Strategic bridge placements at major crossings</li>
+              <li>Frequent grade reversals on all slopes</li>
+              <li>Designated "wet weather routes" on ridgelines</li>
+            </ul>
+
+            <p>
+              <strong>Outcome</strong>: Sustainable trail system with minimal maintenance needs and
+              protected water quality
+            </p>
+          </div>
+
+          <h3>Case Study 2: Wetland Boardwalk Project</h3>
+          <div class="case-study">
+            <p><strong>Challenge</strong>: Providing access through sensitive wetland complex</p>
+
+            <p><strong>Approach</strong>:</p>
+            <ul>
+              <li>Detailed wetland delineation and functional assessment</li>
+              <li>Elevated boardwalk design with minimal footprint</li>
+              <li>Construction during winter frozen conditions</li>
+              <li>Interpretive elements educating users about wetland values</li>
+            </ul>
+
+            <p>
+              <strong>Outcome</strong>: Popular trail feature that provides access while protecting
+              and showcasing sensitive resources
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>WATERSHED ANALYSIS CHECKLIST</h2>
+
+          <h3>Planning Phase</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-1" />
+              <label for="check1-1">Obtain topographic maps and aerial imagery</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-2" />
+              <label for="check1-2">Identify watershed boundaries and sub-basins</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-3" />
+              <label for="check1-3">Map all water features (streams, wetlands, etc.)</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-4" />
+              <label for="check1-4">Analyze slope, aspect, and drainage patterns</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-5" />
+              <label for="check1-5">Research regulatory requirements</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-6" />
+              <label for="check1-6">Identify sensitive water resources</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check1-7" />
+              <label for="check1-7">Document existing water quality conditions</label>
+            </div>
+          </div>
+
+          <h3>Field Assessment</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-1" />
+              <label for="check2-1">Walk proposed corridors in different weather conditions</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-2" />
+              <label for="check2-2">Map springs, seeps, and ephemeral drainages</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-3" />
+              <label for="check2-3">Assess potential stream crossings</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-4" />
+              <label for="check2-4">Identify wetlands and saturated soils</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-5" />
+              <label for="check2-5">Document evidence of flooding or high water</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-6" />
+              <label for="check2-6">Note soil and vegetation indicators</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check2-7" />
+              <label for="check2-7">Evaluate existing erosion issues</label>
+            </div>
+          </div>
+
+          <h3>Design Phase</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-1" />
+              <label for="check3-1">Align trails to minimize water crossings</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-2" />
+              <label for="check3-2">Incorporate appropriate buffer zones</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-3" />
+              <label for="check3-3">Design adequate drainage features</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-4" />
+              <label for="check3-4">Select appropriate crossing structures</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-5" />
+              <label for="check3-5">Develop erosion and sediment control plan</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-6" />
+              <label for="check3-6">Create revegetation and stabilization plan</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check3-7" />
+              <label for="check3-7">Design for peak flow conditions</label>
+            </div>
+          </div>
+
+          <h3>Implementation Phase</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check4-1" />
+              <label for="check4-1">Install erosion controls before construction</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check4-2" />
+              <label for="check4-2">Minimize disturbance footprint</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check4-3" />
+              <label for="check4-3">Construct drainage features as designed</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check4-4" />
+              <label for="check4-4">Build crossings during low-flow periods</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check4-5" />
+              <label for="check4-5">Stabilize disturbed areas promptly</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check4-6" />
+              <label for="check4-6">Document as-built conditions</label>
+            </div>
+          </div>
+
+          <h3>Monitoring Phase</h3>
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <input type="checkbox" id="check5-1" />
+              <label for="check5-1">Inspect after significant rainfall events</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check5-2" />
+              <label for="check5-2">Document performance of drainage features</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check5-3" />
+              <label for="check5-3">Monitor crossing structures for stability</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check5-4" />
+              <label for="check5-4">Assess revegetation success</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check5-5" />
+              <label for="check5-5">Identify maintenance needs</label>
+            </div>
+            <div class="checklist-item">
+              <input type="checkbox" id="check5-6" />
+              <label for="check5-6">Adapt management as needed</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="section resources-section">
+          <h2>RESOURCES</h2>
+
+          <h3>Technical References</h3>
+          <ul>
+            <li>USDA Forest Service Trail Construction and Maintenance Notebook</li>
+            <li>International Mountain Bicycling Association (IMBA) Trail Solutions</li>
+            <li>USDA Natural Resources Conservation Service Stream Restoration Design Handbook</li>
+            <li>EPA Watershed Assessment, Tracking & Environmental Results System (WATERS)</li>
+          </ul>
+
+          <h3>Mapping Resources</h3>
+          <ul>
+            <li>USGS National Map Viewer (nationalmap.gov)</li>
+            <li>USGS StreamStats (streamstats.usgs.gov)</li>
+            <li>NRCS Web Soil Survey (websoilsurvey.nrcs.usda.gov)</li>
+            <li>State-specific GIS data portals</li>
+          </ul>
+
+          <h3>Regulatory Guidance</h3>
+          <ul>
+            <li>U.S. Army Corps of Engineers Regulatory Program</li>
+            <li>EPA Clean Water Act guidance</li>
+            <li>State environmental protection agencies</li>
+            <li>Local watershed districts or conservation authorities</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>CONCLUSION</h2>
+          <p>
+            Thorough watershed analysis is a critical foundation for sustainable trail planning. By
+            understanding how water moves through the landscape, trail builders can design systems
+            that protect water resources while creating enjoyable, low-maintenance trails. The
+            investment in proper analysis and planning pays dividends through reduced maintenance
+            costs, minimized environmental impacts, and enhanced user experiences.
+          </p>
+
+          <p>
+            Remember that watersheds are dynamic systems that change over time. Climate change is
+            altering precipitation patterns in many regions, potentially affecting the validity of
+            historical data. Design with flexibility and resilience in mind, and be prepared to
+            adapt management approaches as conditions change.
+          </p>
+        </section>
+
+        <hr />
+
+        <p class="footer-note">
+          This guide is intended as an educational resource for trail planners and builders. For
+          complex projects or those in sensitive watersheds, consider consulting with hydrologists,
+          soil scientists, or other water resource professionals.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

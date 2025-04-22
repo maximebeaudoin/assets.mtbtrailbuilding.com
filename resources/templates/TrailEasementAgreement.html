@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trail Easement Agreement</title>
+    <style>
+      :root {
+        --document-blue: #2c3e50;
+        --document-accent: #8e44ad;
+        --document-tan: #ecf0f1;
+        --document-gold: #f1c40f;
+        --legal-green: #006e51;
+        --text-dark: #2c3e50;
+        --text-light: #7f8c8d;
+        --border-color: #bdc3c7;
+        --light-bg: #ecf0f1;
+        --white: #ffffff;
+        --section-bg: #f9fbfc;
+        --highlight: #f9f3e0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Cambria', 'Georgia', serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--light-bg);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 0;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        position: relative;
+        padding: 60px 50px 40px;
+        background-color: var(--white);
+        text-align: center;
+        border-bottom: 2px solid var(--document-gold);
+      }
+
+      header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 15px;
+        background-color: var(--document-blue);
+      }
+
+      .document-title {
+        font-size: 2.4rem;
+        font-weight: bold;
+        color: var(--document-blue);
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+      }
+
+      .date-clause {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        font-style: italic;
+        color: var(--text-light);
+      }
+
+      .parties {
+        background-color: var(--section-bg);
+        padding: 30px 50px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .party-heading {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--document-blue);
+        margin-bottom: 20px;
+        margin-top: 30px;
+        text-transform: uppercase;
+      }
+
+      .party {
+        margin: 20px 0 30px;
+      }
+
+      .party-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .party-details {
+        margin-left: 25px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: 15px;
+        font-size: 1rem;
+      }
+
+      .detail-label {
+        font-weight: bold;
+        color: var(--text-light);
+      }
+
+      .recitals {
+        background-color: var(--highlight);
+        padding: 30px 50px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .recitals-heading {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--document-blue);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .recital {
+        margin-bottom: 15px;
+        text-indent: 0;
+      }
+
+      .recital p {
+        margin-bottom: 15px;
+      }
+
+      .now-therefore {
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      main {
+        padding: 40px 50px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .section-number {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--document-blue);
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--document-blue);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .section-content {
+        margin-bottom: 20px;
+      }
+
+      .section-content p {
+        margin-bottom: 15px;
+      }
+
+      .subsection {
+        margin: 25px 0;
+      }
+
+      .subsection-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--document-accent);
+        margin-bottom: 15px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .letter-list {
+        list-style-type: lower-alpha;
+        margin-left: 30px;
+      }
+
+      .bullet-list {
+        list-style-type: disc;
+        margin-left: 30px;
+      }
+
+      .custom-list {
+        list-style-type: none;
+        margin-left: 0;
+      }
+
+      .custom-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px;
+      }
+
+      .custom-list li::before {
+        content: '•';
+        position: absolute;
+        left: 5px;
+        color: var(--document-accent);
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+
+      .signature-section {
+        margin-top: 50px;
+        page-break-inside: avoid;
+      }
+
+      .signature-block {
+        margin: 40px 0;
+      }
+
+      .signature-line {
+        border-top: 1px solid var(--text-dark);
+        width: 100%;
+        max-width: 300px;
+        margin: 40px 0 10px;
+      }
+
+      .signature-name {
+        font-weight: bold;
+      }
+
+      .notary-section {
+        margin-top: 50px;
+        page-break-inside: avoid;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+      }
+
+      .state-heading {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .county-heading {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .notary-text {
+        margin-bottom: 25px;
+      }
+
+      .notary-signature {
+        border-top: 1px solid var(--text-dark);
+        width: 100%;
+        max-width: 300px;
+        margin: 40px 0 10px;
+      }
+
+      .exhibit-section {
+        margin-top: 60px;
+        page-break-before: always;
+        border-top: 2px solid var(--document-gold);
+        padding-top: 30px;
+      }
+
+      .exhibit-list {
+        list-style-type: none;
+        margin-left: 0;
+      }
+
+      .exhibit-list li {
+        padding: 10px 15px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 10px;
+        background-color: var(--section-bg);
+      }
+
+      @media (max-width: 768px) {
+        header,
+        .parties,
+        .recitals,
+        main {
+          padding: 20px 30px;
+        }
+
+        .document-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        @page {
+          margin: 1.5cm;
+          size: letter;
+        }
+
+        .section {
+          page-break-inside: avoid;
+        }
+
+        .signature-section {
+          page-break-before: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="document-title">TRAIL EASEMENT AGREEMENT</h1>
+        <p class="date-clause">
+          THIS TRAIL EASEMENT AGREEMENT (the "Agreement") is made this [DAY] day of [MONTH], [YEAR]
+        </p>
+      </header>
+
+      <div class="parties">
+        <h2 class="party-heading">BETWEEN:</h2>
+
+        <div class="party">
+          <p class="party-name">
+            <strong>[LANDOWNER NAME(S)]</strong> (hereinafter referred to as the "Grantor")
+          </p>
+          <div class="party-details">
+            <span class="detail-label">Address:</span>
+            <span>[Landowner Address]</span>
+
+            <span class="detail-label">Phone:</span>
+            <span>[Landowner Phone]</span>
+
+            <span class="detail-label">Email:</span>
+            <span>[Landowner Email]</span>
+          </div>
+        </div>
+
+        <h2 class="party-heading">AND:</h2>
+
+        <div class="party">
+          <p class="party-name">
+            <strong>[TRAIL ORGANIZATION/LAND TRUST NAME]</strong> (hereinafter referred to as the
+            "Grantee")
+          </p>
+          <div class="party-details">
+            <span class="detail-label">Address:</span>
+            <span>[Organization Address]</span>
+
+            <span class="detail-label">Phone:</span>
+            <span>[Organization Phone]</span>
+
+            <span class="detail-label">Email:</span>
+            <span>[Organization Email]</span>
+
+            <span class="detail-label">Representative:</span>
+            <span>[Representative Name and Title]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recitals">
+        <h2 class="recitals-heading">RECITALS:</h2>
+
+        <div class="recital">
+          <p>
+            WHEREAS, Grantor is the owner in fee simple of certain real property located in [COUNTY]
+            County, [STATE], more particularly described in Exhibit A attached hereto and
+            incorporated herein by reference (the "Property");
+          </p>
+        </div>
+
+        <div class="recital">
+          <p>
+            WHEREAS, the Property possesses natural, scenic, recreational, and/or open space values
+            (collectively, "Conservation Values") of great importance to Grantor, Grantee, and the
+            people of [STATE];
+          </p>
+        </div>
+
+        <div class="recital">
+          <p>
+            WHEREAS, Grantor desires to grant to Grantee a permanent easement for the purpose of
+            establishing, constructing, maintaining, and managing a public recreational trail across
+            a portion of the Property;
+          </p>
+        </div>
+
+        <div class="recital">
+          <p>
+            WHEREAS, Grantee is a [TYPE OF ORGANIZATION: e.g., nonprofit corporation, land trust,
+            government entity] qualified to hold and enforce conservation easements under the laws
+            of the State of [STATE];
+          </p>
+        </div>
+
+        <div class="recital now-therefore">
+          <p>
+            NOW, THEREFORE, in consideration of the mutual covenants, terms, conditions, and
+            restrictions contained herein, and pursuant to the laws of the State of [STATE], Grantor
+            hereby voluntarily grants and conveys to Grantee a perpetual Trail Easement over the
+            Property of the nature and character and to the extent hereinafter set forth.
+          </p>
+        </div>
+      </div>
+
+      <main>
+        <section class="section">
+          <h2 class="section-number">1. GRANT OF EASEMENT</h2>
+
+          <div class="section-content">
+            <p>
+              Grantor hereby grants and conveys to Grantee, its successors and assigns, a perpetual,
+              non-exclusive easement over, under, and across that portion of the Property described
+              and depicted in Exhibit B attached hereto (the "Easement Area"), for the purposes of:
+            </p>
+
+            <ol class="letter-list">
+              <li>
+                Constructing, maintaining, repairing, and managing a recreational trail for public
+                use;
+              </li>
+              <li>
+                Installing and maintaining trail-related improvements including bridges, culverts,
+                drainage structures, signage, and other trail amenities;
+              </li>
+              <li>
+                Accessing the Easement Area as necessary to construct, inspect, maintain, and repair
+                the trail and related improvements; and
+              </li>
+              <li>
+                Permitting public access for recreational trail use subject to the terms and
+                conditions set forth herein.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">2. EASEMENT AREA</h2>
+
+          <div class="section-content">
+            <p>
+              The Easement Area shall consist of a corridor [NUMBER] feet in width, the centerline
+              of which is described in Exhibit B. The Easement Area may be relocated only with the
+              mutual written consent of both Grantor and Grantee.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">3. PERMITTED USES</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3.1 Grantee's Rights</h3>
+            <p>Grantee shall have the following rights within the Easement Area:</p>
+
+            <ol class="letter-list">
+              <li>
+                To construct, maintain, repair, and manage a recreational trail and related
+                improvements;
+              </li>
+              <li>
+                To remove vegetation, rocks, soil, or other materials as reasonably necessary for
+                trail construction and maintenance;
+              </li>
+              <li>
+                To install and maintain signage, including directional, interpretive, and regulatory
+                signs;
+              </li>
+              <li>
+                To construct and maintain bridges, culverts, water bars, steps, and other trail
+                structures;
+              </li>
+              <li>
+                To enter upon the Easement Area at reasonable times to inspect, maintain, and repair
+                the trail;
+              </li>
+              <li>
+                To permit public access for recreational trail use as specified in Section 4; and
+              </li>
+              <li>To enforce rules and regulations governing public use of the trail.</li>
+            </ol>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3.2 Grantor's Reserved Rights</h3>
+            <p>
+              Grantor reserves all rights as owner of the Property, including the right to use and
+              enjoy the Property in any manner not inconsistent with this Agreement, including but
+              not limited to:
+            </p>
+
+            <ol class="letter-list">
+              <li>
+                The right to sell, transfer, lease, or otherwise convey the Property, subject to
+                this Agreement;
+              </li>
+              <li>
+                The right to cross the Easement Area at any point for access to other portions of
+                the Property;
+              </li>
+              <li>
+                The right to maintain existing roads, utilities, and other improvements that cross
+                the Easement Area; and
+              </li>
+              <li>
+                The right to use the Easement Area for purposes that do not materially interfere
+                with the trail or public access.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">4. PUBLIC ACCESS</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4.1 Permitted Public Uses</h3>
+            <p>
+              The trail shall be open to the public for the following non-motorized recreational
+              uses:
+            </p>
+
+            <ul class="bullet-list">
+              <li>
+                [List permitted uses, e.g., hiking, mountain biking, cross-country skiing, etc.]
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4.2 Prohibited Public Uses</h3>
+            <p>The following uses are expressly prohibited:</p>
+
+            <ul class="bullet-list">
+              <li>
+                Motorized vehicles (except for maintenance, emergency, or mobility assistance
+                devices)
+              </li>
+              <li>Equestrian use (unless specifically permitted in writing)</li>
+              <li>Camping or overnight use</li>
+              <li>Fires or smoking</li>
+              <li>Hunting or discharge of firearms</li>
+              <li>[Other prohibited uses]</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4.3 Hours of Access</h3>
+            <p>
+              Public access shall be limited to daylight hours, from sunrise to sunset, unless
+              otherwise agreed upon in writing.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4.4 Temporary Closures</h3>
+            <p>Grantor may temporarily close the trail for:</p>
+
+            <ul class="bullet-list">
+              <li>Forestry operations</li>
+              <li>Agricultural activities</li>
+              <li>Hunting (if applicable)</li>
+              <li>Other land management activities</li>
+            </ul>
+
+            <p>
+              Grantor shall provide at least [NUMBER] days' notice to Grantee of any planned
+              closure. Grantee may temporarily close the trail for maintenance or safety concerns.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">5. CONSTRUCTION AND MAINTENANCE</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">5.1 Initial Construction</h3>
+            <p>
+              Grantee shall construct the trail according to sustainable trail building standards as
+              established by the International Mountain Bicycling Association (IMBA) or equivalent
+              organization. Construction shall minimize environmental impact and erosion.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">5.2 Trail Standards</h3>
+            <p>The trail shall be constructed and maintained to the following standards:</p>
+
+            <ul class="bullet-list">
+              <li>Maximum width of [NUMBER] feet for the tread surface</li>
+              <li>Sustainable grades appropriate for the permitted uses</li>
+              <li>Proper drainage features to prevent erosion</li>
+              <li>Minimal disturbance to surrounding vegetation and soil</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">5.3 Maintenance Responsibilities</h3>
+            <p>Grantee shall be responsible for:</p>
+
+            <ul class="bullet-list">
+              <li>Regular inspection of the trail</li>
+              <li>
+                Routine maintenance including clearing fallen trees, repairing erosion damage, and
+                managing vegetation
+              </li>
+              <li>Maintaining trail signage</li>
+              <li>Addressing any safety concerns in a timely manner</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">5.4 Improvements</h3>
+            <p>
+              Grantee may install and maintain the following improvements within the Easement Area:
+            </p>
+
+            <ul class="bullet-list">
+              <li>Trail markers and signage</li>
+              <li>Bridges, culverts, and drainage features</li>
+              <li>Benches or rest areas</li>
+              <li>[Other approved structures]</li>
+            </ul>
+
+            <p>
+              Any additional improvements not listed above require prior written approval from
+              Grantor.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">6. LIABILITY AND INSURANCE</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">6.1 Liability Protection</h3>
+            <p>
+              Grantee shall maintain general liability insurance with minimum coverage of $[AMOUNT]
+              per occurrence, naming Grantor as an additional insured. Grantee shall provide proof
+              of insurance annually.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">6.2 Recreational Use Statute</h3>
+            <p>
+              Both parties acknowledge that this Agreement is intended to invoke the protections of
+              [STATE]'s Recreational Use Statute, [CITATION], which limits the liability of
+              landowners who make their land available for public recreational use without charge.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">6.3 Indemnification</h3>
+            <p>
+              Grantee agrees to indemnify, defend, and hold harmless Grantor from any claims,
+              damages, or liabilities arising from the construction, maintenance, or public use of
+              the trail, except in cases of gross negligence or willful misconduct by Grantor.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">7. ENFORCEMENT AND REMEDIES</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">7.1 Right to Enforce</h3>
+            <p>
+              Grantee shall have the right to enforce the terms of this Agreement and prevent any
+              activity that is inconsistent with its purpose.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">7.2 Notice of Violation</h3>
+            <p>
+              If either party becomes aware of a violation or potential violation of this Agreement,
+              they shall promptly notify the other party in writing.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">7.3 Remedies</h3>
+            <p>
+              In the event of a violation, the parties shall first attempt to resolve the matter
+              through good faith negotiation. If such efforts fail, either party may seek injunctive
+              relief, specific performance, or other appropriate remedies through legal action.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">7.4 Costs of Enforcement</h3>
+            <p>
+              If legal action is necessary to enforce this Agreement, the prevailing party shall be
+              entitled to recover reasonable attorney's fees and costs.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">8. AMENDMENT AND TERMINATION</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">8.1 Amendment</h3>
+            <p>
+              This Agreement may be amended only with the written consent of both Grantor and
+              Grantee. Any amendment shall be consistent with the purpose of this Agreement and
+              shall be recorded in the public records.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">8.2 Termination</h3>
+            <p>This Agreement may be terminated only:</p>
+            <ol class="letter-list">
+              <li>By mutual written agreement of Grantor and Grantee;</li>
+              <li>
+                By judicial proceedings if circumstances render the purpose of this Agreement
+                impossible to fulfill; or
+              </li>
+              <li>As provided by applicable law.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-number">9. MISCELLANEOUS PROVISIONS</h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">9.1 Recordation</h3>
+            <p>
+              This Agreement shall be recorded in the public records of [COUNTY] County, [STATE].
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">9.2 Successors and Assigns</h3>
+            <p>
+              This Agreement shall be binding upon and inure to the benefit of the respective
+              successors and assigns of Grantor and Grantee.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">9.3 Governing Law</h3>
+            <p>
+              This Agreement shall be governed by and construed in accordance with the laws of the
+              State of [STATE].
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">9.4 Severability</h3>
+            <p>
+              If any provision of this Agreement is found to be invalid or unenforceable, the
+              remainder shall not be affected thereby.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">9.5 Entire Agreement</h3>
+            <p>
+              This Agreement constitutes the entire agreement between the parties concerning the
+              subject matter hereof.
+            </p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">9.6 Notices</h3>
+            <p>
+              Any notice required under this Agreement shall be in writing and delivered personally
+              or by certified mail, return receipt requested, to the addresses set forth above.
+            </p>
+          </div>
+        </section>
+
+        <section class="section signature-section">
+          <h2 class="section-number">10. SIGNATURES</h2>
+
+          <div class="section-content">
+            <p>
+              IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first
+              written above.
+            </p>
+
+            <div class="signature-block">
+              <p><strong>GRANTOR:</strong></p>
+              <div class="signature-line"></div>
+              <p class="signature-name">[GRANTOR NAME]</p>
+              <p>Date: _________________</p>
+            </div>
+
+            <div class="signature-block">
+              <p><strong>GRANTEE:</strong></p>
+              <div class="signature-line"></div>
+              <p class="signature-name">[REPRESENTATIVE NAME]</p>
+              <p>[TITLE]</p>
+              <p>[ORGANIZATION NAME]</p>
+              <p>Date: _________________</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="notary-section">
+          <h2 class="state-heading">STATE OF [STATE] )</h2>
+          <h2 class="county-heading">COUNTY OF [COUNTY] ) ss.</h2>
+
+          <p class="notary-text">
+            On this [DAY] day of [MONTH], [YEAR], before me personally appeared [GRANTOR NAME], to
+            me known to be the person described in and who executed the foregoing instrument, and
+            acknowledged that they executed the same as their free act and deed.
+          </p>
+
+          <div class="notary-signature"></div>
+          <p>Notary Public</p>
+          <p>My Commission Expires: _________________</p>
+        </section>
+
+        <section class="notary-section">
+          <h2 class="state-heading">STATE OF [STATE] )</h2>
+          <h2 class="county-heading">COUNTY OF [COUNTY] ) ss.</h2>
+
+          <p class="notary-text">
+            On this [DAY] day of [MONTH], [YEAR], before me personally appeared [REPRESENTATIVE
+            NAME], to me known to be the person described in and who executed the foregoing
+            instrument as [TITLE] of [ORGANIZATION NAME], and acknowledged that they executed the
+            same as the free act and deed of said organization.
+          </p>
+
+          <div class="notary-signature"></div>
+          <p>Notary Public</p>
+          <p>My Commission Expires: _________________</p>
+        </section>
+
+        <section class="exhibit-section">
+          <h2 class="section-title">EXHIBITS</h2>
+
+          <ul class="exhibit-list">
+            <li>Exhibit A: Legal Description of Property</li>
+            <li>Exhibit B: Description and Map of Easement Area</li>
+            <li>Exhibit C: Trail Construction Standards</li>
+            <li>Exhibit D: Certificate of Insurance</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

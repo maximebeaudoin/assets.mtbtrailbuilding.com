@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wildlife Impact Checklist for Trail Projects</title>
+    <style>
+      :root {
+        --forest: #2e573a;
+        --olive: #6b8e23;
+        --trail: #8b5a2b;
+        --rock: #4a4a4a;
+        --sand: #d2b48c;
+        --sunset: #e07a5f;
+        --light-sand: #f5f0e8;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--rock);
+        background-color: var(--light-sand);
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        background-color: var(--forest);
+        color: var(--white);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      main {
+        padding: 30px 40px 60px;
+      }
+
+      h2 {
+        color: var(--forest);
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--olive);
+      }
+
+      h3 {
+        color: var(--trail);
+        font-size: 1.4rem;
+        margin: 30px 0 15px;
+      }
+
+      h4 {
+        color: var(--rock);
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 20px 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .section {
+        margin-bottom: 40px;
+      }
+
+      .case-study {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .case-study h4 {
+        color: var(--forest);
+        margin-top: 0;
+      }
+
+      .challenge {
+        background-color: rgba(224, 122, 95, 0.1);
+        border-left: 4px solid var(--sunset);
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .challenge h4 {
+        color: var(--sunset);
+        margin-top: 0;
+        font-weight: 600;
+      }
+
+      .solutions h5 {
+        color: var(--rock);
+        margin: 15px 0 10px;
+        font-weight: 600;
+      }
+
+      .footer-note {
+        font-size: 0.9rem;
+        color: var(--rock);
+        font-style: italic;
+        border-top: 1px solid var(--sand);
+        padding-top: 20px;
+        margin-top: 60px;
+      }
+
+      .resources-section {
+        background-color: rgba(210, 180, 140, 0.2);
+        padding: 20px;
+        border-radius: 4px;
+        margin: 30px 0;
+      }
+
+      .process-step {
+        display: flex;
+        margin-bottom: 15px;
+      }
+
+      .step-number {
+        background-color: var(--forest);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .step-content h4 {
+        margin-top: 3px;
+        margin-bottom: 10px;
+      }
+
+      .appendix {
+        background-color: rgba(74, 74, 74, 0.05);
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin: 5px 0;
+      }
+
+      .checklist-section {
+        background-color: rgba(46, 87, 58, 0.05);
+        border: 1px solid rgba(46, 87, 58, 0.2);
+        border-radius: 4px;
+        padding: 15px 20px;
+        margin: 25px 0;
+      }
+
+      .checklist-item {
+        margin-bottom: 15px;
+      }
+
+      .checklist-item label {
+        display: flex;
+        align-items: flex-start;
+        font-weight: 500;
+        color: var(--forest);
+      }
+
+      .checklist-item input[type='checkbox'] {
+        margin-right: 10px;
+        margin-top: 5px;
+        transform: scale(1.2);
+      }
+
+      .checklist-subitem {
+        padding-left: 35px;
+        margin-top: 5px;
+      }
+
+      .checklist-subitem label {
+        font-weight: normal;
+        color: var(--rock);
+      }
+
+      .field-input {
+        background-color: rgba(210, 180, 140, 0.2);
+        border: 1px dashed var(--sand);
+        border-radius: 4px;
+        padding: 2px 8px;
+        font-style: italic;
+        color: var(--trail);
+        margin: 0 5px;
+      }
+
+      .checklist-notes {
+        color: var(--rock);
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-top: 5px;
+        margin-left: 30px;
+      }
+
+      .step-instructions {
+        background-color: rgba(107, 142, 35, 0.1);
+        border-left: 4px solid var(--olive);
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      .step-instructions ol {
+        margin-bottom: 0;
+      }
+
+      .part-header {
+        background-color: var(--forest);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 4px;
+        margin: 40px 0 20px;
+        font-size: 1.3rem;
+      }
+
+      strong {
+        color: var(--forest);
+      }
+
+      @media print {
+        body {
+          background-color: white;
+        }
+
+        .container {
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        .checklist-item input[type='checkbox'] {
+          -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+        }
+
+        @page {
+          margin: 1.5cm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>WILDLIFE IMPACT CHECKLIST FOR TRAIL PROJECTS</h1>
+      </header>
+
+      <main>
+        <section class="section">
+          <h2>INTRODUCTION</h2>
+          <p>
+            This comprehensive checklist helps trail planners and builders identify, assess, and
+            mitigate potential impacts on wildlife and their habitats. Thoughtful planning that
+            considers wildlife needs can create trails that provide recreation opportunities while
+            protecting ecological values.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>HOW TO USE THIS CHECKLIST</h2>
+          <div class="step-instructions">
+            <ol>
+              <li>
+                Complete this assessment during the early planning stages of your trail project
+              </li>
+              <li>
+                Consult with wildlife biologists or natural resource professionals when possible
+              </li>
+              <li>Document your findings and mitigation strategies</li>
+              <li>
+                Incorporate wildlife considerations into your trail design and management plans
+              </li>
+              <li>
+                Monitor wildlife impacts after trail construction and adapt management as needed
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <div class="part-header">PART 1: PRELIMINARY RESEARCH</div>
+
+        <section class="section">
+          <h3>Protected Species Assessment</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span
+                  ><strong
+                    >Check federal endangered/threatened species lists for your project area</strong
+                  ></span
+                >
+              </label>
+              <div class="checklist-subitem">
+                <ul>
+                  <li>
+                    U.S. Fish & Wildlife Service Information for Planning and Consultation (IPaC)
+                    tool
+                  </li>
+                  <li>State wildlife agency databases</li>
+                  <li>NatureServe Explorer</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Identify state-listed species of concern</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <ul>
+                  <li>State natural heritage program databases</li>
+                  <li>State wildlife action plans</li>
+                  <li>Local conservation organizations</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span
+                  ><strong>Document any known protected species in the project area</strong></span
+                >
+              </label>
+              <div class="checklist-subitem">
+                <p>Species name: <span class="field-input">_______________</span></p>
+                <p>Protection status: <span class="field-input">_______________</span></p>
+                <p>Habitat requirements: <span class="field-input">_______________</span></p>
+                <p>Seasonal considerations: <span class="field-input">_______________</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Habitat Identification</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Identify important habitat types in the project area</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Wetlands or riparian areas</label><br />
+                <label><input type="checkbox" /> Old-growth or mature forest</label><br />
+                <label><input type="checkbox" /> Meadows or grasslands</label><br />
+                <label><input type="checkbox" /> Rocky outcrops or talus slopes</label><br />
+                <label><input type="checkbox" /> Unique or rare plant communities</label><br />
+                <label
+                  ><input type="checkbox" /> Other:
+                  <span class="field-input">_______________</span></label
+                >
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Map wildlife corridors and movement patterns</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Known migration routes</label><br />
+                <label><input type="checkbox" /> Connectivity between habitat patches</label><br />
+                <label><input type="checkbox" /> Pinch points or bottlenecks</label><br />
+                <label><input type="checkbox" /> Existing barriers to movement</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Identify sensitive wildlife areas</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Breeding/nesting sites</label><br />
+                <label><input type="checkbox" /> Denning areas</label><br />
+                <label><input type="checkbox" /> Wintering grounds</label><br />
+                <label><input type="checkbox" /> Foraging areas</label><br />
+                <label><input type="checkbox" /> Water sources</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Seasonal Considerations</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Document seasonal wildlife activities</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <p>
+                  Spring breeding/nesting periods: <span class="field-input">_______________</span>
+                </p>
+                <p>Summer rearing of young: <span class="field-input">_______________</span></p>
+                <p>Fall migration periods: <span class="field-input">_______________</span></p>
+                <p>Winter concentration areas: <span class="field-input">_______________</span></p>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Identify timing restrictions for construction</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <p>
+                  Species-specific restrictions: <span class="field-input">_______________</span>
+                </p>
+                <p>
+                  General wildlife considerations: <span class="field-input">_______________</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="part-header">PART 2: FIELD ASSESSMENT</div>
+
+        <section class="section">
+          <h3>Wildlife Sign Inventory</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Document evidence of wildlife presence</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Tracks and trails</label><br />
+                <label><input type="checkbox" /> Scat or droppings</label><br />
+                <label><input type="checkbox" /> Nests, dens, or burrows</label><br />
+                <label><input type="checkbox" /> Bedding areas</label><br />
+                <label><input type="checkbox" /> Feeding signs (browsed vegetation, etc.)</label
+                ><br />
+                <label><input type="checkbox" /> Calls or vocalizations</label><br />
+                <label><input type="checkbox" /> Direct observations</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Record locations of wildlife sign with GPS</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <ul>
+                  <li>Create map of wildlife activity areas</li>
+                  <li>Note concentration areas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Habitat Feature Assessment</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Document specific habitat features</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Snags (dead standing trees)</label><br />
+                <label><input type="checkbox" /> Large downed logs</label><br />
+                <label><input type="checkbox" /> Rock outcroppings</label><br />
+                <label><input type="checkbox" /> Unique vegetation patches</label><br />
+                <label><input type="checkbox" /> Water sources</label><br />
+                <label><input type="checkbox" /> Mineral licks</label><br />
+                <label><input type="checkbox" /> Unique soil conditions</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Assess habitat quality</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Vegetation diversity and structure</label><br />
+                <label><input type="checkbox" /> Presence of invasive species</label><br />
+                <label><input type="checkbox" /> Signs of disturbance or degradation</label><br />
+                <label><input type="checkbox" /> Connectivity to larger habitat areas</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Existing Trail/Road Impact Assessment</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Evaluate impacts from existing trails or roads</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Wildlife avoidance patterns</label><br />
+                <label><input type="checkbox" /> Erosion and sedimentation issues</label><br />
+                <label><input type="checkbox" /> Habitat fragmentation</label><br />
+                <label><input type="checkbox" /> Invasive species spread</label><br />
+                <label><input type="checkbox" /> User behavior (off-trail travel, etc.)</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="part-header">PART 3: IMPACT ANALYSIS</div>
+
+        <section class="section">
+          <h3>Direct Impact Assessment</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Quantify potential habitat alteration</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <p>Trail corridor width: <span class="field-input">_______________</span></p>
+                <p>
+                  Total area of vegetation removal: <span class="field-input">_______________</span>
+                </p>
+                <p>
+                  Number of trees to be removed: <span class="field-input">_______________</span>
+                </p>
+                <p>
+                  Wetland or riparian areas affected:
+                  <span class="field-input">_______________</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Identify potential wildlife disturbance</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label
+                  ><input type="checkbox" /> Species likely to be sensitive to human presence</label
+                ><br />
+                <label><input type="checkbox" /> Anticipated trail usage levels and patterns</label
+                ><br />
+                <label><input type="checkbox" /> Noise impacts during construction and use</label
+                ><br />
+                <label><input type="checkbox" /> Potential for wildlife displacement</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Indirect Impact Assessment</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Evaluate potential for habitat fragmentation</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label
+                  ><input type="checkbox" /> Trail creates barrier to movement for any
+                  species</label
+                ><br />
+                <label><input type="checkbox" /> Trail bisects important habitat areas</label><br />
+                <label><input type="checkbox" /> Cumulative effects with other trails/roads</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span
+                  ><strong>Assess potential for increased human/wildlife conflicts</strong></span
+                >
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Attractants (trash, food, etc.)</label><br />
+                <label><input type="checkbox" /> Potential for off-trail travel</label><br />
+                <label><input type="checkbox" /> Wildlife habituated to humans</label><br />
+                <label><input type="checkbox" /> Seasonal conflict points</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Consider long-term ecological changes</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Edge effects along trail corridor</label><br />
+                <label><input type="checkbox" /> Changes in vegetation composition</label><br />
+                <label><input type="checkbox" /> Altered predator-prey dynamics</label><br />
+                <label><input type="checkbox" /> Potential for invasive species introduction</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Cumulative Impact Consideration</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Identify other recreational uses in the area</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Existing trail networks</label><br />
+                <label><input type="checkbox" /> Camping areas</label><br />
+                <label><input type="checkbox" /> Hunting activity</label><br />
+                <label><input type="checkbox" /> Motorized recreation</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Consider landscape-level impacts</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Overall habitat fragmentation in the region</label
+                ><br />
+                <label><input type="checkbox" /> Regional wildlife population trends</label><br />
+                <label><input type="checkbox" /> Connectivity to protected areas</label><br />
+                <label><input type="checkbox" /> Climate change considerations</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="part-header">PART 4: MITIGATION STRATEGIES</div>
+
+        <section class="section">
+          <h3>Trail Alignment Modifications</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Avoid sensitive wildlife areas</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Reroute trail away from critical habitat</label
+                ><br />
+                <label><input type="checkbox" /> Maintain buffers around sensitive areas:</label>
+                <ul>
+                  <li>Raptor nests: <span class="field-input">_____</span> feet buffer</li>
+                  <li>Wetlands: <span class="field-input">_____</span> feet buffer</li>
+                  <li>Den sites: <span class="field-input">_____</span> feet buffer</li>
+                  <li>Other: <span class="field-input">_____</span> feet buffer</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Minimize habitat fragmentation</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label
+                  ><input type="checkbox" /> Align trail along existing edges or disturbances</label
+                ><br />
+                <label><input type="checkbox" /> Use existing corridors where possible</label><br />
+                <label><input type="checkbox" /> Avoid bisecting large habitat patches</label><br />
+                <label><input type="checkbox" /> Provide wildlife crossing opportunities</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Construction Techniques</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Minimize construction footprint</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Narrow trail corridor in sensitive areas</label
+                ><br />
+                <label
+                  ><input type="checkbox" /> Use hand-building techniques where appropriate</label
+                ><br />
+                <label
+                  ><input type="checkbox" /> Carefully manage staging and material storage
+                  areas</label
+                >
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Implement timing restrictions</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Avoid construction during breeding seasons</label
+                ><br />
+                <label
+                  ><input type="checkbox" /> Schedule work to minimize wildlife disturbance</label
+                ><br />
+                <label><input type="checkbox" /> Consider seasonal wildlife movements</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Protect specific habitat features</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Preserve snags and large trees</label><br />
+                <label><input type="checkbox" /> Maintain downed logs near trail</label><br />
+                <label><input type="checkbox" /> Protect unique microhabitats</label><br />
+                <label><input type="checkbox" /> Minimize stream crossings</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Management Strategies</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Develop seasonal closure plans if needed</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <p>Proposed closure periods: <span class="field-input">_______________</span></p>
+                <p>Trigger conditions: <span class="field-input">_______________</span></p>
+                <p>Enforcement mechanism: <span class="field-input">_______________</span></p>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Create wildlife education components</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Interpretive signage about local wildlife</label
+                ><br />
+                <label><input type="checkbox" /> Guidelines for wildlife encounters</label><br />
+                <label
+                  ><input type="checkbox" /> Explanation of closure reasons (if applicable)</label
+                ><br />
+                <label><input type="checkbox" /> Leave No Trace principles</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Establish monitoring protocols</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Wildlife observation reporting system</label><br />
+                <label><input type="checkbox" /> Regular trail impact assessments</label><br />
+                <label><input type="checkbox" /> Adaptive management triggers</label><br />
+                <label><input type="checkbox" /> Volunteer monitoring program</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="part-header">PART 5: SPECIAL CONSIDERATIONS</div>
+
+        <section class="section">
+          <h3>Riparian and Wetland Areas</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Minimize stream crossings</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <p>
+                  Number of proposed crossings: <span class="field-input">_______________</span>
+                </p>
+                <p>
+                  Types of crossing structures: <span class="field-input">_______________</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Protect water quality</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Erosion control plan</label><br />
+                <label><input type="checkbox" /> Sedimentation prevention measures</label><br />
+                <label><input type="checkbox" /> Maintain riparian vegetation</label><br />
+                <label><input type="checkbox" /> Appropriate crossing structures</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Consider aquatic species</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Fish passage requirements</label><br />
+                <label><input type="checkbox" /> Amphibian movement patterns</label><br />
+                <label><input type="checkbox" /> Aquatic habitat protection</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Sensitive Species-Specific Measures</h3>
+
+          <div class="checklist-section">
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Large mammals</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Maintain sight distances in dense vegetation</label
+                ><br />
+                <label><input type="checkbox" /> Provide escape routes</label><br />
+                <label><input type="checkbox" /> Consider trail closures during migration</label
+                ><br />
+                <label><input type="checkbox" /> Manage potential attractants</label>
+              </div>
+            </div>
+
+            <div class="checklist-item">
+              <label>
+                <input type="checkbox" />
+                <span><strong>Ground-nesting birds</strong></span>
+              </label>
+              <div class="checklist-subitem">
+                <label><input type="checkbox" /> Identify potential nesting habitat</label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
